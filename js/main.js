@@ -124,10 +124,10 @@ async function startGeneratingImage() {
 	imgs = [];
 
 	imageURLs = [];
-	imageURLs.push(avatarImageSrc ? avatarImageSrc : '/img/bird.png');
+	imageURLs.push(avatarImageSrc ? avatarImageSrc : 'img/bird.png');
 
-	imageURLs.push('/img/' + background);
-	imageURLs.push('/img/bird.png');
+	imageURLs.push('img/' + background);
+	imageURLs.push('img/bird.png');
 
 	statePath = '';
 	if (endorseeInfo.state !== undefined && endorseeInfo.state !== '') {
