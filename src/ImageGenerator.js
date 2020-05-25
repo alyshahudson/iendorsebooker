@@ -16,7 +16,7 @@ export default function ImageGenerator(props) {
       <div className="text">
         {props.location && <h3 class="location">{props.location}</h3>}
         <h2 class="endorsement">{props.name} <i>endorses</i> Booker</h2>
-        <p>{props.blurb}"</p>
+        <h3 class="blurb">{props.blurb}"</h3>
       </div>
     </div>
 	);
