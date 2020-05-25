@@ -71,8 +71,7 @@ class App extends Component {
 						<article className="textual">
 							<h1>I Endorse BOOKER</h1>
 							<p>
-								Create your own endorsement graphic for Bernie and other
-								progressive candidates to share over Instagram, Twitter,
+								Create your own endorsement graphic for Booker to share over Instagram, Twitter,
 								Facebook, emails, and so forth!
 							</p>
 						</article>
@@ -223,13 +222,13 @@ class App extends Component {
 
 							{/* social */}
 							<div className="social">
-								<a href="https://twitter.com/Booker4KY" taget="_blank">
+								<a href="https://twitter.com/Booker4KY" target="_blank">
 									<TwitterIcon />
 								</a>
-								<a href="https://www.facebook.com/Booker4KY/" taget="_blank">
+								<a href="https://www.facebook.com/Booker4KY/" target="_blank">
 									<FacebookIcon />
 								</a>
-								<a href="https://www.instagram.com/booker4ky" taget="_blank">
+								<a href="https://www.instagram.com/booker4ky" target="_blank">
 									<InstagramIcon />
 								</a>
 								<p>
