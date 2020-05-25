@@ -1,5 +1,5 @@
 div#generated-image{
-	width: 100%;
+	width: 32vw;
 	height: 32vw;
 	position: relative;
 
@@ -27,13 +27,27 @@ div#generated-image{
 		position: absolute;
 		top: 0;
 		left: 0;
+		z-index: -1;
 	}
 
 	// text
 	.text{
+		margin-top: -15px;
 
+		// location
 		.location{
 			background-color: black;
+			color: white;
+			width: fit-content;
+			padding: 0 30px;
+		}
+
+		// endorsement
+		.endorsement{
+			background-color: white;
+			color: red;
+			width: fit-content;
+			margin: 5px 30px;
 		}
 	}
 
@@ -46,7 +60,7 @@ div#generated-image{
 		top: 0;
 		left: 0;
 		opacity: 0.4;
-		z-index
+		z-index: -1;
 	}
 
 	&.redBg{

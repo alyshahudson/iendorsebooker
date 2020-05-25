@@ -4,12 +4,12 @@ Typography
 ----------------------------------------
 */
 
-body {
+body{
 	font: 20px/1.6 freight-sans-condensed-pro, Helvetica, Helvetica Neue, Arial;
 	font-weight: 400;
 }
 
-h1 {
+h1{
 	margin: 0;
 	font-family: jubilat,serif;
 	font-weight: 700;
@@ -19,6 +19,22 @@ h1 {
 
 	@media #{$tablet} { font-size: 3em; }
 	@media #{$phone} { font-size: 2.5em; }
+}
+
+h2{
+	font-family: jubilat, serif;
+	// 32vw (container width) / 1000
+	font-size: 112 * 0.032vw;
+	font-weight: bold;
+	margin: 0;
+}
+
+h3{
+	font-family: freight-sans-pro, Helvetica, Helvetica Neue, Arial;
+	// 32vw (container height) / 1000
+	font-size: 30 * 0.032vw;
+	font-weight: bold;
+	margin: 0;
 }
 
 p{ margin: 0; }
