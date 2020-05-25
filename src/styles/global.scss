@@ -1,0 +1,7 @@
+html { color:var(--body-text); }
+
+main { background:var(--body-background); }
+
+div, input, textarea, section, header{
+	box-sizing: border-box;
+}
