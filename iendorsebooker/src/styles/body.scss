@@ -1,0 +1,45 @@
+section.body{
+	padding: $vertical-padding $horizontal-padding;
+	
+	.textual{
+		@include flex(flex, row, flex-start, space-between);
+
+		.left-group, .right-group{
+			width: 48%;
+			@include flex(flex, column, flex-start, flex-start);
+
+			// form
+			form{ width: 100%; }
+
+			// example image
+			.example{
+				width: 100%;
+				height: auto;
+			}
+
+			.social{
+				// @include flex(flex, row, center, flex-start);
+				margin: $vertical-small 0;
+
+				svg{
+					width: 30px;
+					height: 30px;
+					margin-right: 20px;
+
+					g{ fill: var(--body-text); }
+
+					&:hover{
+						g{ fill: var(--color-Link); }
+					}
+				}
+			}
+		}
+	}
+
+	@media #{$phone} {
+		.textual{
+			display: block;
+			.left-group, .right-group{ width: 100%; }
+		}
+	}
+}

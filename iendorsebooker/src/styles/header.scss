@@ -1,0 +1,19 @@
+header{
+	width: 100vw;
+	background-color: var(--body-text);
+	color: var(--body-background);
+
+	padding: $vertical-padding $horizontal-padding;
+
+	.textual{
+		p{ max-width: 60vw; }
+	}
+
+	@media #{$phone} {
+		.textual{
+			text-align: center;
+
+			p{ max-width: unset; }
+		}
+	}
+}
