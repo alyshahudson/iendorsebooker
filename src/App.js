@@ -104,7 +104,8 @@ class App extends Component {
 										onChange={this.handleChange}
 										name="blurb"
 										placeholder="Your text here"
-										rows="6"
+										rows="5"
+										maxlength='300'
 										value={this.state.blurb}
 									/>
 									<label htmlFor="blurb">
