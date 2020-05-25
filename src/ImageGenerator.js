@@ -2,14 +2,22 @@ import React from 'react';
 
 export default function ImageGenerator(props) {
 	return (
-		<div className={props.bgColor}>
-			{props.location && <p>{props.location}</p>}
-			<p>
-				{props.name} <i>endorses</i> Booker
-			</p>
-			<p>{props.blurb}</p>
-			<img className="avatar" src={props.file} alt="avatar" />
-			<img className="background" src={props.bgPhoto} alt="background" />
-		</div>
+		<div id="generated-image" className={props.bgColor}>
+
+      {/* background image */}
+      <img className="background" src={props.bgPhoto} alt="background" />
+
+      {/* avatar */}
+      <div className="avatar-container">
+        <img className="avatar" src={props.file} alt="avatar" />
+      </div>
+
+      {/* text */}
+      <div className="text">
+        {props.location && <p class="location">{props.location}</p>}
+        <h2 class="endorsement">{props.name} <i>endorses</i> Booker</h2>
+        <p>{props.blurb}</p>
+      </div>
+    </div>
 	);
 }

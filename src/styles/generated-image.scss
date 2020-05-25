@@ -1,0 +1,67 @@
+div#generated-image{
+	width: 100%;
+	height: 32vw;
+	position: relative;
+
+	// avatar
+	.avatar-container{
+		width: 150px;
+		height: 150px;
+		overflow: hidden;
+		@include flex(flex, row, center, center);
+		border-radius: 50%;
+		border: 8px solid white;
+		margin: 20px 0 0 20px;
+		z-index: 1;
+
+		img{
+			width: 100%;
+			min-height: 100%;
+		}
+	}
+
+	// background image
+	.background{
+		width: 32vw;
+		height: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	// text
+	.text{
+
+		.location{
+			background-color: black;
+		}
+	}
+
+	// color overlay
+	&:after{
+		content: '';
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.4;
+		z-index
+	}
+
+	&.redBg{
+		// background-color: red;
+
+		&:after{ background-color: red; }
+	}
+	&.orangeBg{
+		// background-color: orange;
+
+		&:after{ background-color: orange; }
+	}
+	&.yellowBg{
+		// background-color: yellow;
+
+		&:after{ background-color: yellow; }
+	}
+}
