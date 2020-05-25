@@ -18,7 +18,6 @@ section.body{
 			}
 
 			.social{
-				// @include flex(flex, row, center, flex-start);
 				margin: $vertical-small 0;
 
 				svg{
@@ -29,7 +28,7 @@ section.body{
 					g{ fill: var(--body-text); }
 
 					&:hover{
-						g{ fill: var(--color-Link); }
+						g{ opacity: 0.9; }
 					}
 				}
 			}

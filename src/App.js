@@ -17,10 +17,19 @@ class App extends Component {
 			bgColor: '',
 			showGeneratedImage: false,
 		};
+
 		this.handleChange = this.handleChange.bind(this);
 		this.readFile = this.readFile.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.toggleImage = this.toggleImage.bind(this);
+	}
+
+	componentDidMount() {
+		// set defaults
+		this.setState({
+			'bgColor': 'redBg',
+			'bgPhoto': '/img/photo1.png'
+		});
 	}
 
 	handleChange(e) {
@@ -92,7 +101,7 @@ class App extends Component {
 										type="text"
 										name="location"
 										onChange={this.handleChange}
-										placeholder="Enter Location"
+										placeholder="Voter, United States of America"
 										value={this.state.location}
 									/>
 									<label htmlFor="location">Job Title/Location</label>
@@ -105,7 +114,7 @@ class App extends Component {
 										name="blurb"
 										placeholder="Your text here"
 										rows="5"
-										maxlength='300'
+										maxLength='300'
 										value={this.state.blurb}
 									/>
 									<label htmlFor="blurb">
@@ -132,7 +141,7 @@ class App extends Component {
 										name="bgColor"
 										id="redBG"
 										value="redBg"
-										checked={true}
+										checked={this.state.bgColor === 'redBg'}
 										onChange={this.handleChange}
 									/>
 									<input
@@ -140,6 +149,7 @@ class App extends Component {
 										name="bgColor"
 										id="orangeBG"
 										value="orangeBg"
+										checked={this.state.bgColor === 'orangeBg'}
 										onChange={this.handleChange}
 									/>
 									<input
@@ -147,6 +157,7 @@ class App extends Component {
 										name="bgColor"
 										id="yellowBG"
 										value="yellowBg"
+										checked={this.state.bgColor === 'yellowBg'}
 										onChange={this.handleChange}
 									/>
 									<label htmlFor="bgColor">Color</label>
@@ -161,6 +172,7 @@ class App extends Component {
 												name="bgPhoto"
 												id="choice-1"
 												value="/img/photo1.png"
+												checked={this.state.bgPhoto === '/img/photo1.png'}
 												onChange={this.handleChange}
 											/>
 											<img src="/img/photo1.png" name="photo1" alt="" />
@@ -171,6 +183,7 @@ class App extends Component {
 												name="bgPhoto"
 												id="choice-2"
 												value="/img/photo2.jpg"
+												checked={this.state.bgPhoto === '/img/photo2.jpg'}
 												onChange={this.handleChange}
 											/>
 											<img src="/img/photo2.jpg" name="photo2" alt="" />
@@ -181,6 +194,7 @@ class App extends Component {
 												name="bgPhoto"
 												id="choice-3"
 												value="/img/photo3.jpg"
+												checked={this.state.bgPhoto === '/img/photo3.jpg'}
 												onChange={this.handleChange}
 											/>
 											<img src="/img/photo3.jpg" name="photo3" alt="" />

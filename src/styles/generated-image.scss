@@ -61,14 +61,24 @@ div#generated-image{
 			line-height: 1;
 
 			&:after{
-				content: '"';
+				content: '“';
 				@extend .h1;
 				position: absolute;
-				top: -15px;
-				left: 30px;
+				top: -20px;
+				left: 15px;
 				opacity: 0.3;
 			}
 		}
+	}
+
+	// fine print
+	.fine-print{
+		position: absolute;
+		bottom: 0;
+		left: 20px;
+		color: white;
+		
+		p{ font-size: 10px; }
 	}
 
 	// base color
