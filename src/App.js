@@ -22,33 +22,33 @@ class App extends Component {
     this.readFile = this.readFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleImage = this.toggleImage.bind(this);
-    this.downloadImage = this.downloadImage.bind(this);
   }
 
   handleChange(e) {
-    //console.log(e.target.value);
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value,
     });
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
+    e.preventDefault();
+    
+    this.toggleImage();
+
     let divImage = document.getElementById("generated-image");
     let button = document.getElementById("btn-download");
-    e.preventDefault();
+    let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
 
-	this.toggleImage();
-
-	html2canvas(document.getElementById("generated-image"), {allowTaint: true, backgroundColor: null, foreignObjectRendering: false}).then(canvas => {
-
-		let base64 = canvas.toDataURL("image/png");
-		// base64.replace(/^data:image\/(png|jpg);base64,/, "")
-		// let something = base64.split(',')[1]
-		button.href=base64
-		console.log(button.href)
-	
-	});
+    // create canvas from html element
+    await html2canvas(divImage, {
+      useCORS: true,
+      y: distanceFromTop
+    }).then(canvas => {
+      let base64 = canvas.toDataURL("image/png");
+      // make base64 of canvas the href for download button
+      button.href = base64
+    })
 }
 
   toggleImage() {
@@ -66,21 +66,6 @@ class App extends Component {
         file: URL.createObjectURL(e.target.files[0]),
       });
     }
-  }
-
-  downloadImage() {
-    let divImage = document.getElementById("generated-image");
-	let button = document.getElementById("btn-download");
-
-
-    // let imgData = this.getBase64Image(divImage);
-    // localStorage.setItem("imgData", imgData);
-
-    // var dataImage = localStorage.getItem("imgData");
-    // let bannerImg = document.getElementById("tableBanner");
-    // bannerImg.src = "data:image/png;base64," + dataImage;
-	// button.href = "data:image/png;base64," + dataImage;
-	
   }
 
   render() {
@@ -236,9 +221,9 @@ class App extends Component {
               {/* )} */}
               <a
                 href="#top"
-                class="button"
+                className="button"
                 id="btn-download"
-				download="myendorsement.png"
+                download="myendorsement.png"
               >
                 Download
               </a>
