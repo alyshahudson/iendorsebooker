@@ -120,7 +120,7 @@ form{
 	// NOTE: non-text input
 	.input-group.non-text{
 		margin-bottom: $vertical-small;
-		padding: 10px 10px;
+		padding: 15px 10px 10px;
 		@include flex(flex, column, center, flex-start);
 		border: 1px solid var(--body-text);
 		border-radius: 5px;
