@@ -33,27 +33,24 @@ class App extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-<<<<<<< HEAD
-    
-   
-=======
 
->>>>>>> a3872469d8dd67afbb97740e8f69ebcdbe2e55aa
-    this.toggleImage();
-
-    let divImage = document.getElementById('generated-image');
-    let button = document.getElementById('btn-download');
-    let distanceFromTop =
-      divImage.getBoundingClientRect().top + window.pageYOffset;
-
-    // create canvas from html element
-    await html2canvas(divImage, {
-      useCORS: true,
-      y: distanceFromTop,
-    }).then((canvas) => {
-      let base64 = canvas.toDataURL('image/png');
-      // make base64 of canvas the href for download button
-      button.href = base64;
+    this.setState({
+      showGeneratedImage: true,
+    }, () => {
+      let divImage = document.getElementById('generated-image');
+      let button = document.getElementById('btn-download');
+      let distanceFromTop =
+        divImage.getBoundingClientRect().top + window.pageYOffset;
+  
+      // create canvas from html element
+      html2canvas(divImage, {
+        useCORS: true,
+        y: distanceFromTop,
+      }).then((canvas) => {
+        let base64 = canvas.toDataURL('image/png');
+        // make base64 of canvas the href for download button
+        button.href = base64;
+      });
     });
   }
 
@@ -228,33 +225,28 @@ class App extends Component {
             </div>
             <div className="right-group">
               
-               {/* {this.state.showGeneratedImage ? (  */}
+               { this.state.showGeneratedImage ? (
                  <div>
-                <ImageGenerator
-                  name={this.state.name}
-                  location={this.state.location}
-                  file={this.state.file}
-                  blurb={this.state.blurb}
-                  bgColor={this.state.bgColor}
-                  bgPhoto={this.state.bgPhoto}
-                />
-                <a
-                href="#top"
-                className="button"
-                id="btn-download"
-                download="myendorsement.png"
-              >
-                Download
-              </a>
+                  <ImageGenerator
+                    name={this.state.name}
+                    location={this.state.location}
+                    file={this.state.file}
+                    blurb={this.state.blurb}
+                    bgColor={this.state.bgColor}
+                    bgPhoto={this.state.bgPhoto}
+                  />
+                  <a
+                  href="#top"
+                  className="button"
+                  id="btn-download"
+                  download="myendorsement.png"
+                >Download</a>
               </div>
-              {/* )
-               
-               : ( */}
-                <img className="example" src="/img/example.png" alt="example" /> 
-               {/* )
-  } */}
 
-             
+             ) : ( 
+
+                <img className="example" src="/img/example.png" alt="example" /> 
+            )}       
 
               {/* social */}
               <div className="social">
