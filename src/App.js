@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { ReactComponent as TwitterIcon } from "./photos/twitter.svg";
-import { ReactComponent as FacebookIcon } from "./photos/facebook.svg";
-import { ReactComponent as InstagramIcon } from "./photos/instagram.svg";
-import "./App.scss";
-import ImageGenerator from "./ImageGenerator";
-import html2canvas from "html2canvas";
+import React, { Component } from 'react';
+import { ReactComponent as TwitterIcon } from './photos/twitter.svg';
+import { ReactComponent as FacebookIcon } from './photos/facebook.svg';
+import { ReactComponent as InstagramIcon } from './photos/instagram.svg';
+import './App.scss';
+import ImageGenerator from './ImageGenerator';
+import html2canvas from 'html2canvas';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      location: "",
+      name: '',
+      location: '',
       file: null,
-      blurb: "",
-      bgPhoto: "",
-      bgColor: "",
+      blurb: '',
+      bgPhoto: '',
+      bgColor: '',
       showGeneratedImage: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -74,9 +74,8 @@ class App extends Component {
             <article className="textual">
               <h1>I Endorse Booker</h1>
               <p>
-                Create your own endorsement graphic for Booker and other
-                progressive candidates to share over Instagram, Twitter,
-                Facebook, emails, and so forth!
+                Create your own endorsement graphic for Booker to share over
+                Instagram, Twitter, Facebook, emails, and so forth!
               </p>
             </article>
           </section>
@@ -228,18 +227,30 @@ class App extends Component {
 
               {/* social */}
               <div className="social">
-                <a href="https://twitter.com/Booker4KY" taget="_blank">
+                <a
+                  href="https://twitter.com/Booker4KY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TwitterIcon />
                 </a>
-                <a href="https://www.facebook.com/Booker4KY/" taget="_blank">
+                <a
+                  href="https://www.facebook.com/Booker4KY/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FacebookIcon />
                 </a>
-                <a href="https://www.instagram.com/booker4ky" taget="_blank">
+                <a
+                  href="https://www.instagram.com/booker4ky"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <InstagramIcon />
                 </a>
                 <p>
                   If you like this, please follow me on social media — and say
-                  hello! And when you share your image include the hashtag{" "}
+                  hello! And when you share your image include the hashtag{' '}
                   <span className="bold">#IEndorseBooker</span>.
                 </p>
               </div>
