@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function ImageGenerator(props) {
 	return (
+    // <canvas id="canvas" >
 		<div id="generated-image" className={props.bgColor}>
 
       {/* background image */}
@@ -24,5 +25,6 @@ export default function ImageGenerator(props) {
 			<p>Generated at IENDORSEBOOKER.COM <span className="bold">#IEndorseBooker</span></p>
 		</div>
     </div>
+    // </canvas>
 	);
 }
