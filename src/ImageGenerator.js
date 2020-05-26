@@ -15,10 +15,14 @@ export default function ImageGenerator(props) {
 
       {/* text */}
       <div className="text">
-        {props.location && <h3 class="location">{props.location}</h3>}
-        <h2 class="endorsement">{props.name} <i>endorses</i> Booker</h2>
-        <h3 class="blurb">{props.blurb}"</h3>
+        {props.location && <h3 className="location">{props.location}</h3>}
+        <h2 className="endorsement">{props.name} <i>endorses</i> Booker</h2>
+        <h3 className="blurb">{props.blurb}”</h3>
       </div>
+
+		<div className="fine-print">
+			<p>Generated at IENDORSEBOOKER.COM <span className="bold">#IEndorseBooker</span></p>
+		</div>
     </div>
     // </canvas>
 	);
