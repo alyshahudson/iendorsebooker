@@ -5,7 +5,7 @@ section.body{
 		@include flex(flex, row, flex-start, space-between);
 
 		.left-group, .right-group{
-			width: 48%;
+			width: 32vw;
 			@include flex(flex, column, flex-start, flex-start);
 
 			// form
@@ -17,8 +17,9 @@ section.body{
 				height: auto;
 			}
 
+			// social media links
 			.social{
-				margin: $vertical-small 0;
+				margin: 0 0 $vertical-small 0;
 
 				svg{
 					width: 30px;
@@ -30,6 +31,21 @@ section.body{
 					&:hover{
 						g{ opacity: 0.9; }
 					}
+				}
+			}
+
+			#btn-download{
+				width: 100%;
+				padding: 5px 10px;
+				margin: $vertical-small 0;
+				color: var(--body-text);
+				border: 1px solid var(--body-text);
+				border-radius: 5px;
+				text-align: center;
+
+				&:hover{
+					background-color: var(--body-text);
+					color: var(--body-background);
 				}
 			}
 		}

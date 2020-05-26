@@ -27,6 +27,15 @@ form{
 		color: var(--body-text);
 		border: 1px solid var(--body-text);
 		border-radius: 5px;
+
+		&[type=submit]{
+			cursor: pointer;
+
+			&:hover{
+				background-color: var(--body-text);
+				color: var(--body-background);
+			}
+		}
 	}
 
 	textarea{ overflow: auto; }

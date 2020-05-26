@@ -21,9 +21,9 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.readFile = this.readFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.toggleImage = this.toggleImage.bind(this);
   }
 
+  // handle change
   handleChange(e) {
     this.setState({
       ...this.state,
@@ -31,34 +31,32 @@ class App extends Component {
     });
   }
 
-  async handleSubmit(e) {
+  // handle form submit
+  handleSubmit(e) {
     e.preventDefault();
     
-    this.toggleImage();
+    this.setState({
+      showGeneratedImage: true,
+    }, () => {
+      
+      let divImage = document.getElementById("generated-image");
+      let button = document.getElementById("btn-download");
+      let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
 
-    let divImage = document.getElementById("generated-image");
-    let button = document.getElementById("btn-download");
-    let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
+      // create canvas from html element
+      html2canvas(divImage, {
+        useCORS: true,
+        y: distanceFromTop
+      }).then(canvas => {
+        let base64 = canvas.toDataURL("image/png");
+        // make base64 of canvas the href for download button
+        button.href = base64
+      })
 
-    // create canvas from html element
-    await html2canvas(divImage, {
-      useCORS: true,
-      y: distanceFromTop
-    }).then(canvas => {
-      let base64 = canvas.toDataURL("image/png");
-      // make base64 of canvas the href for download button
-      button.href = base64
-    })
-}
-
-  toggleImage() {
-    if (this.state.showGeneratedImage === false) {
-      this.setState({
-        showGeneratedImage: true,
-      });
-    }
+    });
   }
 
+  // read uploaded file
   readFile(e) {
     if (e.target.files[0]) {
       this.setState({
@@ -207,7 +205,7 @@ class App extends Component {
               </form>
             </div>
             <div className="right-group">
-              {/* {this.state.showGeneratedImage ? ( */}
+              {this.state.showGeneratedImage ? (
                 <ImageGenerator
                   name={this.state.name}
                   location={this.state.location}
@@ -216,9 +214,9 @@ class App extends Component {
                   bgColor={this.state.bgColor}
                   bgPhoto={this.state.bgPhoto}
                 />
-              {/* ) : ( */}
+              ) : (
                 <img className="example" src="/img/example.png" alt="example" />
-              {/* )} */}
+              )}
               <a
                 href="#top"
                 className="button"

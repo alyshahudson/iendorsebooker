@@ -21,10 +21,16 @@ export default function ImageGenerator(props) {
         <h3 className="blurb">{props.blurb}”</h3>
       </div>
 
-		<div className="fine-print">
-			<p>Generated at IENDORSEBOOKER.COM <span className="bold">#IEndorseBooker</span></p>
-		</div>
+      {/* fine print */}
+      <div className="fine-print">
+        <p>Generated at IENDORSEBOOKER.COM <span className="bold">#IEndorseBooker</span></p>
+      </div>
+
+      {/* background color */}
+      <div className="background-color"></div>
+      
+      {/* color overlay */}
+      <div className="overlay-color"></div>
     </div>
-    // </canvas>
 	);
 }
