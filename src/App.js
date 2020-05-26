@@ -21,9 +21,9 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.readFile = this.readFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleImage = this.toggleImage.bind(this);
   }
 
-  // handle change
   handleChange(e) {
     this.setState({
       ...this.state,
@@ -31,32 +31,40 @@ class App extends Component {
     });
   }
 
-  // handle form submit
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
+<<<<<<< HEAD
     
-    this.setState({
-      showGeneratedImage: true,
-    }, () => {
-      
-      let divImage = document.getElementById("generated-image");
-      let button = document.getElementById("btn-download");
-      let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
+   
+=======
 
-      // create canvas from html element
-      html2canvas(divImage, {
-        useCORS: true,
-        y: distanceFromTop
-      }).then(canvas => {
-        let base64 = canvas.toDataURL("image/png");
-        // make base64 of canvas the href for download button
-        button.href = base64
-      })
+>>>>>>> a3872469d8dd67afbb97740e8f69ebcdbe2e55aa
+    this.toggleImage();
 
+    let divImage = document.getElementById('generated-image');
+    let button = document.getElementById('btn-download');
+    let distanceFromTop =
+      divImage.getBoundingClientRect().top + window.pageYOffset;
+
+    // create canvas from html element
+    await html2canvas(divImage, {
+      useCORS: true,
+      y: distanceFromTop,
+    }).then((canvas) => {
+      let base64 = canvas.toDataURL('image/png');
+      // make base64 of canvas the href for download button
+      button.href = base64;
     });
   }
 
-  // read uploaded file
+  toggleImage() {
+    if (this.state.showGeneratedImage === false) {
+      this.setState({
+        showGeneratedImage: true,
+      });
+    }
+  }
+
   readFile(e) {
     if (e.target.files[0]) {
       this.setState({
@@ -64,6 +72,13 @@ class App extends Component {
         file: URL.createObjectURL(e.target.files[0]),
       });
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      bgColor:"redBg",
+      bgPhoto: "/img/photo1.png"
+    })
   }
 
   render() {
@@ -93,6 +108,7 @@ class App extends Component {
                     onChange={this.handleChange}
                     placeholder="Enter Full Name"
                     value={this.state.name}
+                    required
                   />
                   <label htmlFor="name">Name</label>
                 </div>
@@ -105,6 +121,7 @@ class App extends Component {
                     onChange={this.handleChange}
                     placeholder="Enter Location"
                     value={this.state.location}
+                    required
                   />
                   <label htmlFor="location">Job Title/Location</label>
                 </div>
@@ -117,6 +134,7 @@ class App extends Component {
                     placeholder="Your text here"
                     rows="6"
                     value={this.state.blurb}
+                    required
                   />
                   <label htmlFor="blurb">
                     Why do you endorse Charles Booker?
@@ -142,7 +160,7 @@ class App extends Component {
                     name="bgColor"
                     id="redBG"
                     value="redBg"
-                    checked={true}
+                    checked={this.state.bgColor === "redBg"}
                     onChange={this.handleChange}
                   />
                   <input
@@ -150,6 +168,7 @@ class App extends Component {
                     name="bgColor"
                     id="orangeBG"
                     value="orangeBg"
+                    checked={this.state.bgColor === "orangeBg"}
                     onChange={this.handleChange}
                   />
                   <input
@@ -157,6 +176,7 @@ class App extends Component {
                     name="bgColor"
                     id="yellowBG"
                     value="yellowBg"
+                    checked={this.state.bgColor === "yellowBg"}
                     onChange={this.handleChange}
                   />
                   <label htmlFor="bgColor">Color</label>
@@ -171,6 +191,7 @@ class App extends Component {
                         name="bgPhoto"
                         id="choice-1"
                         value="/img/photo1.png"
+                        checked={this.state.bgPhoto === "/img/photo1.png"}
                         onChange={this.handleChange}
                       />
                       <img src="/img/photo1.png" name="photo1" alt="" />
@@ -181,6 +202,7 @@ class App extends Component {
                         name="bgPhoto"
                         id="choice-2"
                         value="/img/photo2.jpg"
+                        checked={this.state.bgPhoto === "/img/photo2.jpg"}
                         onChange={this.handleChange}
                       />
                       <img src="/img/photo2.jpg" name="photo2" alt="" />
@@ -191,6 +213,7 @@ class App extends Component {
                         name="bgPhoto"
                         id="choice-3"
                         value="/img/photo3.jpg"
+                        checked={this.state.bgPhoto === "/img/photo3.jpg"}
                         onChange={this.handleChange}
                       />
                       <img src="/img/photo3.jpg" name="photo3" alt="" />
@@ -204,7 +227,9 @@ class App extends Component {
               </form>
             </div>
             <div className="right-group">
-              {this.state.showGeneratedImage ? (
+              
+               {/* {this.state.showGeneratedImage ? (  */}
+                 <div>
                 <ImageGenerator
                   name={this.state.name}
                   location={this.state.location}
@@ -213,10 +238,7 @@ class App extends Component {
                   bgColor={this.state.bgColor}
                   bgPhoto={this.state.bgPhoto}
                 />
-              ) : (
-                <img className="example" src="/img/example.png" alt="example" />
-              )}
-              <a
+                <a
                 href="#top"
                 className="button"
                 id="btn-download"
@@ -224,6 +246,15 @@ class App extends Component {
               >
                 Download
               </a>
+              </div>
+              {/* )
+               
+               : ( */}
+                <img className="example" src="/img/example.png" alt="example" /> 
+               {/* )
+  } */}
+
+             
 
               {/* social */}
               <div className="social">
