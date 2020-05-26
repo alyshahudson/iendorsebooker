@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { ReactComponent as TwitterIcon } from "./photos/twitter.svg";
-import { ReactComponent as FacebookIcon } from "./photos/facebook.svg";
-import { ReactComponent as InstagramIcon } from "./photos/instagram.svg";
-import "./App.scss";
-import ImageGenerator from "./ImageGenerator";
-import html2canvas from "html2canvas";
+import React, { Component } from 'react';
+import { ReactComponent as TwitterIcon } from './photos/twitter.svg';
+import { ReactComponent as FacebookIcon } from './photos/facebook.svg';
+import { ReactComponent as InstagramIcon } from './photos/instagram.svg';
+import './App.scss';
+import ImageGenerator from './ImageGenerator';
+import html2canvas from 'html2canvas';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      location: "",
+      name: '',
+      location: '',
       file: null,
-      blurb: "",
-      bgPhoto: "",
-      bgColor: "",
+      blurb: '',
+      bgPhoto: '',
+      bgColor: '',
       showGeneratedImage: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -33,24 +33,29 @@ class App extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
+<<<<<<< HEAD
     
    
+=======
+
+>>>>>>> a3872469d8dd67afbb97740e8f69ebcdbe2e55aa
     this.toggleImage();
 
-    let divImage = document.getElementById("generated-image");
-    let button = document.getElementById("btn-download");
-    let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
+    let divImage = document.getElementById('generated-image');
+    let button = document.getElementById('btn-download');
+    let distanceFromTop =
+      divImage.getBoundingClientRect().top + window.pageYOffset;
 
     // create canvas from html element
     await html2canvas(divImage, {
       useCORS: true,
-      y: distanceFromTop
-    }).then(canvas => {
-      let base64 = canvas.toDataURL("image/png");
+      y: distanceFromTop,
+    }).then((canvas) => {
+      let base64 = canvas.toDataURL('image/png');
       // make base64 of canvas the href for download button
-      button.href = base64
-    })
-}
+      button.href = base64;
+    });
+  }
 
   toggleImage() {
     if (this.state.showGeneratedImage === false) {
@@ -84,9 +89,8 @@ class App extends Component {
             <article className="textual">
               <h1>I Endorse Booker</h1>
               <p>
-                Create your own endorsement graphic for Booker and other
-                progressive candidates to share over Instagram, Twitter,
-                Facebook, emails, and so forth!
+                Create your own endorsement graphic for Booker to share over
+                Instagram, Twitter, Facebook, emails, and so forth!
               </p>
             </article>
           </section>
@@ -254,18 +258,30 @@ class App extends Component {
 
               {/* social */}
               <div className="social">
-                <a href="https://twitter.com/Booker4KY" taget="_blank">
+                <a
+                  href="https://twitter.com/Booker4KY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TwitterIcon />
                 </a>
-                <a href="https://www.facebook.com/Booker4KY/" taget="_blank">
+                <a
+                  href="https://www.facebook.com/Booker4KY/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FacebookIcon />
                 </a>
-                <a href="https://www.instagram.com/booker4ky" taget="_blank">
+                <a
+                  href="https://www.instagram.com/booker4ky"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <InstagramIcon />
                 </a>
                 <p>
                   If you like this, please follow me on social media — and say
-                  hello! And when you share your image include the hashtag{" "}
+                  hello! And when you share your image include the hashtag{' '}
                   <span className="bold">#IEndorseBooker</span>.
                 </p>
               </div>
