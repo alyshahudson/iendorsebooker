@@ -29,7 +29,7 @@ class App extends Component {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value,
-    }, () => this.makeCanvas);
+    }, () => this.makeCanvas());
 
     if (e.target.name === 'name') {
       // change name font-size to fit
@@ -46,14 +46,15 @@ class App extends Component {
     this.setState({
       ...this.state,
       showGeneratedImage: true
-    }, () => this.makeCanvas)
-  
+    }, () => this.makeCanvas())
   }
 
-   makeCanvas() {
-    console.log("here")
-      let divImage = document.getElementById('generated-image');
-      let button = document.getElementById('btn-download');
+  makeCanvas() {
+    let divImage = document.getElementById('generated-image');
+    let button = document.getElementById('btn-download');
+
+    // otherwise generated-image and button are hidden
+    if (this.state.showGeneratedImage) {
       let distanceFromTop =
         divImage.getBoundingClientRect().top + window.pageYOffset;
   
@@ -64,10 +65,9 @@ class App extends Component {
       }).then((canvas) => {
         let base64 = canvas.toDataURL('image/png');
         // make base64 of canvas the href for download button
-        console.log('now HERE')
         button.href = base64;
       });
-
+    }
   }
 
   readFile(e) {
@@ -105,6 +105,7 @@ class App extends Component {
           <article className="textual">
             <div className="left-group">
               <form onSubmit={this.handleSubmit}>
+
                 {/* name */}
                 <div className="input-group standard">
                   <input
@@ -228,11 +229,14 @@ class App extends Component {
                   <label htmlFor="bgPhoto">Image</label>
                 </div>
 
+                {/* submit */}
                 <input type="submit" name="Generate!" />
               </form>
             </div>
+
+
             <div className="right-group">
-              
+              {/* generated image */}
                { this.state.showGeneratedImage ? (
                  <div>
                   <ImageGenerator
@@ -243,6 +247,8 @@ class App extends Component {
                     bgColor={this.state.bgColor}
                     bgPhoto={this.state.bgPhoto}
                   />
+<pre>{this.state.name}</pre>
+                  {/* download button */}
                   <a
                   href="#top"
                   className="button"
@@ -251,9 +257,9 @@ class App extends Component {
                 >Download</a>
               </div>
 
-             ) : ( 
-
-                <img className="example" src="/img/example.png" alt="example" /> 
+            ) : ( 
+              // example image
+              <img className="example" src="/img/example.png" alt="example" /> 
             )}       
 
               {/* social */}
