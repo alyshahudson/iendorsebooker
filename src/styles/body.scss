@@ -1,75 +1,76 @@
 section.body {
-  padding: $vertical-padding $horizontal-padding;
+	padding: $vertical-padding $horizontal-padding;
+	flex: 1 0 auto;
 
-  .textual {
-    @include flex(flex, row, flex-start, space-between);
+	.textual {
+		@include flex(flex, row, flex-start, space-between);
 
-    .left-group,
-    .right-group {
-      width: 32vw;
-      @include flex(flex, column, flex-start, flex-start);
+		.left-group,
+		.right-group {
+			width: 32vw;
+			@include flex(flex, column, flex-start, flex-start);
 
-      // form
-      form {
-        width: 100%;
-      }
+			// form
+			form {
+				width: 100%;
+			}
 
-      .ie {
-        width: 32vw;
-      }
+			.ie {
+				width: 32vw;
+			}
 
-      // example image
-      .example {
-        width: 32vw;
-        height: auto;
-      }
+			// example image
+			.example {
+				width: 32vw;
+				height: auto;
+			}
 
-      // social media links
-      .social {
-        margin: $vertical-small 0;
+			// social media links
+			.social {
+				margin: $vertical-small 0;
 
-        svg {
-          width: 30px;
-          height: 30px;
-          margin-right: 20px;
+				svg {
+					width: 30px;
+					height: 30px;
+					margin-right: 20px;
 
-          g {
-            fill: var(--body-text);
-          }
+					g {
+						fill: var(--body-text);
+					}
 
-          &:hover {
-            g {
-              opacity: 0.9;
-            }
-          }
-        }
-      }
+					&:hover {
+						g {
+							opacity: 0.9;
+						}
+					}
+				}
+			}
 
-      #btn-download {
-        display: block;
-        width: 100%;
-        padding: 5px 10px;
-        margin: $vertical-small 0 0;
-        color: var(--body-text);
-        border: 1px solid var(--body-text);
-        border-radius: 5px;
-        text-align: center;
+			#btn-download {
+				display: block;
+				width: 100%;
+				padding: 5px 10px;
+				margin: $vertical-small 0 0;
+				color: var(--body-text);
+				border: 1px solid var(--body-text);
+				border-radius: 5px;
+				text-align: center;
 
-        &:hover {
-          background-color: #4e9d85;
-          color: var(--body-background);
-        }
-      }
-    }
-  }
+				&:hover {
+					background-color: #4e9d85;
+					color: var(--body-background);
+				}
+			}
+		}
+	}
 
-  @media #{$phone} {
-    .textual {
-      display: block;
-      .left-group,
-      .right-group {
-        width: 100%;
-      }
-    }
-  }
+	@media #{$phone} {
+		.textual {
+			display: block;
+			.left-group,
+			.right-group {
+				width: 100%;
+			}
+		}
+	}
 }
