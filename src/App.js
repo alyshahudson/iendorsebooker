@@ -18,6 +18,7 @@ class App extends Component {
       bgPhoto: '',
       bgColor: '',
       showGeneratedImage: false,
+      isIE: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.readFile = this.readFile.bind(this);
@@ -80,9 +81,16 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // check browser
+    let browser = window.navigator.userAgent;
+    let old_ie = browser.indexOf('MSIE ');
+    let new_ie = browser.indexOf('Trident/');
+
+
     this.setState({
       bgColor:"redBg",
-      bgPhoto: "/img/photo1.png"
+      bgPhoto: "/img/photo1.png",
+      isIE: (old_ie > -1) || (new_ie > -1)
     })
   }
 
@@ -103,137 +111,143 @@ class App extends Component {
 
         <section className="body">
           <article className="textual">
-            <div className="left-group">
-              <form onSubmit={this.handleSubmit}>
+            {this.state.isIE === true ? (
+              <div className="left-group">
+                <h2 class="ie">Sorry, this is not a supported browser</h2>
+              </div>
+            ) : (
 
-                {/* name */}
-                <div className="input-group standard">
-                  <input
-                    type="text"
-                    name="name"
-                    onChange={this.handleChange}
-                    placeholder="Enter Full Name"
-                    value={this.state.name}
-                    required
-                  />
-                  <label htmlFor="name">Name</label>
-                </div>
-
-                {/* location */}
-                <div className="input-group standard">
-                  <input
-                    type="text"
-                    name="location"
-                    onChange={this.handleChange}
-                    placeholder="Enter Location"
-                    value={this.state.location}
-                    required
-                  />
-                  <label htmlFor="location">Job Title/Location</label>
-                </div>
-
-                {/* why */}
-                <div className="input-group standard">
-                  <textarea
-                    onChange={this.handleChange}
-                    name="blurb"
-                    placeholder="Your text here"
-                    rows="6"
-                    value={this.state.blurb}
-                    required
-                  />
-                  <label htmlFor="blurb">
-                    Why do you endorse Charles Booker?
-                  </label>
-                </div>
-
-                {/* photo upload */}
-                <div className="input-group non-text">
-                  <input
-                    type="file"
-                    id="file"
-                    accept="image/*"
-                    onChange={this.readFile}
-                  />
-                  <label htmlFor="inputImg">Upload photo</label>
-                  <img id="output" src={this.state.file} alt="" />
-                </div>
-
-                {/* colors */}
-                <div className="input-group non-text colors">
-                  <input
-                    type="radio"
-                    name="bgColor"
-                    id="redBG"
-                    value="redBg"
-                    checked={this.state.bgColor === "redBg"}
-                    onChange={this.handleChange}
-                  />
-                  <input
-                    type="radio"
-                    name="bgColor"
-                    id="orangeBG"
-                    value="orangeBg"
-                    checked={this.state.bgColor === "orangeBg"}
-                    onChange={this.handleChange}
-                  />
-                  <input
-                    type="radio"
-                    name="bgColor"
-                    id="yellowBG"
-                    value="yellowBg"
-                    checked={this.state.bgColor === "yellowBg"}
-                    onChange={this.handleChange}
-                  />
-                  <label htmlFor="bgColor">Color</label>
-                </div>
-
-                {/* image */}
-                <div className="input-group non-text image-selector">
-                  <div className="options">
-                    <div className="img-radio">
-                      <input
-                        type="radio"
-                        name="bgPhoto"
-                        id="choice-1"
-                        value="/img/photo1.png"
-                        checked={this.state.bgPhoto === "/img/photo1.png"}
-                        onChange={this.handleChange}
-                      />
-                      <img src="/img/photo1.png" name="photo1" alt="" />
-                    </div>
-                    <div className="img-radio">
-                      <input
-                        type="radio"
-                        name="bgPhoto"
-                        id="choice-2"
-                        value="/img/photo2.jpg"
-                        checked={this.state.bgPhoto === "/img/photo2.jpg"}
-                        onChange={this.handleChange}
-                      />
-                      <img src="/img/photo2.jpg" name="photo2" alt="" />
-                    </div>
-                    <div className="img-radio">
-                      <input
-                        type="radio"
-                        name="bgPhoto"
-                        id="choice-3"
-                        value="/img/photo3.jpg"
-                        checked={this.state.bgPhoto === "/img/photo3.jpg"}
-                        onChange={this.handleChange}
-                      />
-                      <img src="/img/photo3.jpg" name="photo3" alt="" />
-                    </div>
+              <div className="left-group">
+                <form onSubmit={this.handleSubmit}>
+  
+                  {/* name */}
+                  <div className="input-group standard">
+                    <input
+                      type="text"
+                      name="name"
+                      onChange={this.handleChange}
+                      placeholder="Enter Full Name"
+                      value={this.state.name}
+                      required
+                    />
+                    <label htmlFor="name">Name</label>
                   </div>
-
-                  <label htmlFor="bgPhoto">Image</label>
-                </div>
-
-                {/* submit */}
-                <input type="submit" name="Generate!" />
-              </form>
-            </div>
-
+  
+                  {/* location */}
+                  <div className="input-group standard">
+                    <input
+                      type="text"
+                      name="location"
+                      onChange={this.handleChange}
+                      placeholder="Enter Location"
+                      value={this.state.location}
+                      required
+                    />
+                    <label htmlFor="location">Job Title/Location</label>
+                  </div>
+  
+                  {/* why */}
+                  <div className="input-group standard">
+                    <textarea
+                      onChange={this.handleChange}
+                      name="blurb"
+                      placeholder="Your text here"
+                      rows="6"
+                      value={this.state.blurb}
+                      required
+                    />
+                    <label htmlFor="blurb">
+                      Why do you endorse Charles Booker?
+                    </label>
+                  </div>
+  
+                  {/* photo upload */}
+                  <div className="input-group non-text">
+                    <input
+                      type="file"
+                      id="file"
+                      accept="image/*"
+                      onChange={this.readFile}
+                    />
+                    <label htmlFor="inputImg">Upload photo</label>
+                    <img id="output" src={this.state.file} alt="" />
+                  </div>
+  
+                  {/* colors */}
+                  <div className="input-group non-text colors">
+                    <input
+                      type="radio"
+                      name="bgColor"
+                      id="redBG"
+                      value="redBg"
+                      checked={this.state.bgColor === "redBg"}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="radio"
+                      name="bgColor"
+                      id="orangeBG"
+                      value="orangeBg"
+                      checked={this.state.bgColor === "orangeBg"}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="radio"
+                      name="bgColor"
+                      id="yellowBG"
+                      value="yellowBg"
+                      checked={this.state.bgColor === "yellowBg"}
+                      onChange={this.handleChange}
+                    />
+                    <label htmlFor="bgColor">Color</label>
+                  </div>
+  
+                  {/* image */}
+                  <div className="input-group non-text image-selector">
+                    <div className="options">
+                      <div className="img-radio">
+                        <input
+                          type="radio"
+                          name="bgPhoto"
+                          id="choice-1"
+                          value="/img/photo1.png"
+                          checked={this.state.bgPhoto === "/img/photo1.png"}
+                          onChange={this.handleChange}
+                        />
+                        <img src="/img/photo1.png" name="photo1" alt="" />
+                      </div>
+                      <div className="img-radio">
+                        <input
+                          type="radio"
+                          name="bgPhoto"
+                          id="choice-2"
+                          value="/img/photo2.jpg"
+                          checked={this.state.bgPhoto === "/img/photo2.jpg"}
+                          onChange={this.handleChange}
+                        />
+                        <img src="/img/photo2.jpg" name="photo2" alt="" />
+                      </div>
+                      <div className="img-radio">
+                        <input
+                          type="radio"
+                          name="bgPhoto"
+                          id="choice-3"
+                          value="/img/photo3.jpg"
+                          checked={this.state.bgPhoto === "/img/photo3.jpg"}
+                          onChange={this.handleChange}
+                        />
+                        <img src="/img/photo3.jpg" name="photo3" alt="" />
+                      </div>
+                    </div>
+  
+                    <label htmlFor="bgPhoto">Image</label>
+                  </div>
+  
+                  {/* submit */}
+                  <input type="submit" name="Generate!" />
+                </form>
+              </div>
+            )}
 
             <div className="right-group">
               {/* generated image */}
@@ -247,7 +261,7 @@ class App extends Component {
                     bgColor={this.state.bgColor}
                     bgPhoto={this.state.bgPhoto}
                   />
-<pre>{this.state.name}</pre>
+
                   {/* download button */}
                   <a
                   href="#top"
