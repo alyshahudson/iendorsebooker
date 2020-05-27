@@ -1,236 +1,249 @@
-form{
+form {
+  .input-group {
+    display: flex;
+    flex-flow: column-reverse;
+    position: relative;
+  }
 
-	.input-group{
-		display: flex;
-		flex-flow: column-reverse;
-		position: relative;
-	}
+  label,
+  input,
+  textarea {
+    display: block;
+    transition: all 0.2s;
+    touch-action: manipulation;
+    font: 20px/1.6 freight-sans-condensed-pro, Helvetica, Helvetica Neue, Arial;
+    font-weight: 400;
+  }
 
-	label, input, textarea{
-		display: block;
-		transition: all 0.2s;
-		touch-action: manipulation;
-		font: 20px/1.6 freight-sans-condensed-pro, Helvetica, Helvetica Neue, Arial;
-		font-weight: 400;
-	}
+  input,
+  textarea {
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    background: transparent;
+    resize: none;
+    padding: 5px 10px;
+    margin-bottom: $vertical-small;
+    color: var(--body-text);
+    border: 1px solid var(--body-text);
+    border-radius: 5px;
 
-	input, textarea{
-		width: 100%;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-		outline: none;
-		background: transparent;
-		resize: none;
-		padding: 5px 10px;
-		margin-bottom: $vertical-small;
-		color: var(--body-text);
-		border: 1px solid var(--body-text);
-		border-radius: 5px;
+    &[type='submit'] {
+      cursor: pointer;
 
-		&[type=submit]{
-			cursor: pointer;
+      &:hover {
+        background-color: #4e9d85;
+        color: var(--body-background);
+      }
+    }
+  }
 
-			&:hover{
-				background-color: var(--body-text);
-				color: var(--body-background);
-			}
-		}
-	}
+  textarea {
+    overflow: auto;
+  }
 
-	textarea{ overflow: auto; }
+  // autofill formatting
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--body-text);
+    -webkit-box-shadow: 0 0 0px 1000px var(--body-background) inset;
+    transition: background-color 5000s ease-in-out 0s;
+    font: 20px/1.6 freight-sans-condensed-pro, Helvetica, Helvetica Neue, Arial;
+    font-weight: 400;
+  }
 
-	// autofill formatting
-	input:-webkit-autofill,
-	input:-webkit-autofill:hover,
-	input:-webkit-autofill:focus,
-	input:-webkit-autofill:active {
-		-webkit-text-fill-color: var(--body-text);
-		-webkit-box-shadow: 0 0 0px 1000px var(--body-background) inset;
-		transition: background-color 5000s ease-in-out 0s;
-		font: 20px/1.6 freight-sans-condensed-pro, Helvetica, Helvetica Neue, Arial;
-		font-weight: 400;
-	}
+  // NOTE: standard input
+  .input-group.standard {
+    // static state
+    input:placeholder-shown + label {
+      cursor: text;
+      position: absolute;
+      left: 0px;
+      top: 5px;
+      margin-left: 10px;
+      z-index: -1;
+    }
 
-	// NOTE: standard input
-	.input-group.standard{
-		// static state
-		input:placeholder-shown + label {
-			cursor: text;
-			position: absolute;
-			left: 0px;
-			top: 5px;
-			margin-left: 10px;
-			z-index: -1;
-		}
+    // static state
+    textarea:placeholder-shown + label {
+      cursor: text;
+      position: absolute;
+      left: 0px;
+      top: 5px;
+      margin-left: 10px;
+      z-index: -1;
+    }
 
-		// static state
-		textarea:placeholder-shown + label {
-			cursor: text;
-			position: absolute;
-			left: 0px;
-			top: 5px;
-			margin-left: 10px;
-			z-index: -1;
-		}
-	
-		// placeholder static state
-		::-webkit-input-placeholder {
-			opacity: 0;
-			transition: inherit;
-		}
+    // placeholder static state
+    ::-webkit-input-placeholder {
+      opacity: 0;
+      transition: inherit;
+    }
 
-		// placeholder static state firefox
-		::-moz-placeholder {
-			color: transparent;
-			transition: inherit;
-		}
+    // placeholder static state firefox
+    ::-moz-placeholder {
+      color: transparent;
+      transition: inherit;
+    }
 
-		// placeholder static state IE
-		:-ms-input-placeholder {
-			color: transparent;
-			transition: inherit;
-		}
+    // placeholder static state IE
+    :-ms-input-placeholder {
+      color: transparent;
+      transition: inherit;
+    }
 
-		// show placeholder
-		input:focus::-webkit-input-placeholder {
-			opacity: 1;
-		}
-	
-		// input either focussed or has text
-		input:not(:placeholder-shown) + label, textarea:not(:placeholder-shown) + label {
-			margin-left: 0px;
-			position: absolute;
-			line-height: 1;
-			left: 10px;
-			top: -12px;
-			font-size: 14px;
-			cursor: pointer;
-			padding: 4px;
-			background-color: var(--body-background);
-			z-index: 1;
-		}
+    // show placeholder
+    input:focus::-webkit-input-placeholder {
+      opacity: 1;
+    }
 
-		// input either focussed or has text
-		input:focus + label, textarea:focus + label {
-			margin-left: 0px;
-			position: absolute;
-			line-height: 1;
-			left: 10px;
-			top: -12px;
-			font-size: 14px;
-			cursor: pointer;
-			padding: 4px;
-			background-color: var(--body-background);
-			z-index: 1;
-		}
-	}
+    // input either focussed or has text
+    input:not(:placeholder-shown) + label,
+    textarea:not(:placeholder-shown) + label {
+      margin-left: 0px;
+      position: absolute;
+      line-height: 1;
+      left: 10px;
+      top: -12px;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px;
+      background-color: var(--body-background);
+      z-index: 1;
+    }
 
-	// NOTE: non-text input
-	.input-group.non-text{
-		margin-bottom: $vertical-small;
-		padding: 15px 10px 10px;
-		@include flex(flex, column, center, flex-start);
-		border: 1px solid var(--body-text);
-		border-radius: 5px;
+    // input either focussed or has text
+    input:focus + label,
+    textarea:focus + label {
+      margin-left: 0px;
+      position: absolute;
+      line-height: 1;
+      left: 10px;
+      top: -12px;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px;
+      background-color: var(--body-background);
+      z-index: 1;
+    }
+  }
 
-		input{ 
-			@include flex(flex, row, center, center);
-			border: none;
-			margin-bottom: 0;
-			cursor: pointer;
-		}
+  // NOTE: non-text input
+  .input-group.non-text {
+    margin-bottom: $vertical-small;
+    padding: 15px 10px 10px;
+    @include flex(flex, column, center, flex-start);
+    border: 1px solid var(--body-text);
+    border-radius: 5px;
 
-		// input either focussed or has text
-		input:not(:placeholder-shown) + label,
-		input:focus + label {
-			margin-left: 0px;
-			position: absolute;
-			line-height: 1;
-			left: 10px;
-			top: -12px;
-			font-size: 14px;
-			cursor: pointer;
-			padding: 4px;
-			background-color: var(--body-background);
-			z-index: 1;
-		}
+    input {
+      @include flex(flex, row, center, center);
+      border: none;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
 
-		img{
-			width: 100px;
-			height: auto;
-			margin-top: 10px;
-		}
-	}
+    // input either focussed or has text
+    input:not(:placeholder-shown) + label,
+    input:focus + label {
+      margin-left: 0px;
+      position: absolute;
+      line-height: 1;
+      left: 10px;
+      top: -12px;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px;
+      background-color: var(--body-background);
+      z-index: 1;
+    }
 
-	// NOTE: color input
-	.input-group.colors{
-		@include flex(flex, row, flex-start, flex-start);
+    img {
+      width: 100px;
+      height: auto;
+      margin-top: 10px;
+    }
+  }
 
-		input{
-			width: 50px;
-			height: 50px;
+  // NOTE: color input
+  .input-group.colors {
+    @include flex(flex, row, flex-start, flex-start);
 
-			&:checked{
-				border: 2px solid var(--body-text);
-			}
-		}
+    input {
+      width: 50px;
+      height: 50px;
 
-		#redBG{ background-color: red; }
-		#orangeBG{ background-color: orange; }
-		#yellowBG{ background-color: yellow; }
-	}
+      &:checked {
+        border: 2px solid var(--body-text);
+      }
+    }
 
-	// NOTE: image selector
-	.input-group.image-selector{
+    #purpleBG {
+      background-color: #2a1e51;
+    }
+    #yellowBG {
+      background-color: #f6c54f;
+    }
+    #greenBG {
+      background-color: #4e9d85;
+    }
+  }
 
-		.options{
-			width: 100%;
-			@include flex(flex, row, flex-start, space-between);
-			flex-wrap: wrap;
-		}
+  // NOTE: image selector
+  .input-group.image-selector {
+    .options {
+      width: 100%;
+      @include flex(flex, row, flex-start, space-between);
+      flex-wrap: wrap;
+    }
 
-		.img-radio{
-			position: relative;
-			width: 48%;
-			margin: 0 0 20px;
+    .img-radio {
+      position: relative;
+      width: 48%;
+      margin: 0 0 20px;
 
-			img{
-				width: 100%;
-				height: 120px;
-				position: absolute;
-				top: 0;
-				right: 0;
-				z-index: -1;
-				margin: 0;
-				border-radius: 5px;
-			}
+      img {
+        width: 100%;
+        height: 120px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        margin: 0;
+        border-radius: 5px;
+      }
 
-			input{
-				width: 100%;
-				height: 120px;
-				padding: 0;
-				margin: 0;
+      input {
+        width: 100%;
+        height: 120px;
+        padding: 0;
+        margin: 0;
 
-				&:checked{
-					border: 2px solid var(--body-text);
-				}
-			}
+        &:checked {
+          border: 2px solid var(--body-text);
+        }
+      }
 
-			&:last-child{ margin-bottom: 0; }
-		}
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
-		label{
-			margin-left: 0px;
-			position: absolute;
-			line-height: 1;
-			left: 10px;
-			top: -12px;
-			font-size: 14px;
-			cursor: pointer;
-			padding: 4px;
-			background-color: var(--body-background);
-			z-index: 1;
-		}
-	}
+    label {
+      margin-left: 0px;
+      position: absolute;
+      line-height: 1;
+      left: 10px;
+      top: -12px;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px;
+      background-color: var(--body-background);
+      z-index: 1;
+    }
+  }
 }
