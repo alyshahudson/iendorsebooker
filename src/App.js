@@ -179,7 +179,15 @@ class App extends Component {
 											onChange={this.readFile}
 										/>
 										<label htmlFor="inputImg">Upload photo</label>
-										<img id="output" src={this.state.file} alt="" />
+										<img
+											id="output"
+											src={
+												this.state.file === '/img/default.jpg'
+													? null
+													: this.state.file
+											}
+											alt=""
+										/>
 									</div>
 
 									{/* colors */}
