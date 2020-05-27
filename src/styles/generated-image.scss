@@ -33,6 +33,7 @@ div#generated-image{
 	// text
 	.text{
 		margin-top: -15px;
+		width: 31vw;
 
 		// location
 		.location{
@@ -47,7 +48,7 @@ div#generated-image{
 			background-color: white;
 			color: red;
 			width: fit-content;
-			margin: 5px 30px;
+			padding: 5px 30px;
 			line-height: 1;
 		}
 
@@ -83,7 +84,7 @@ div#generated-image{
 
 	// base color
 	.background-color{
-		height: 60%;
+		height: 17vw;
 		width: 100%;
 		position: absolute;
 		bottom: 0;
@@ -93,7 +94,7 @@ div#generated-image{
 
 	// color overlay
 	.overlay-color{
-		height: 15vw;
+		height: 100%;
 		width: 100%;
 		position: absolute;
 		top: 0;

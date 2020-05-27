@@ -5,6 +5,7 @@ import { ReactComponent as InstagramIcon } from './photos/instagram.svg';
 import './App.scss';
 import ImageGenerator from './ImageGenerator';
 import html2canvas from 'html2canvas';
+import fitty from 'fitty';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,11 @@ class App extends Component {
       ...this.state,
       [e.target.name]: e.target.value,
     });
+
+    if (e.target.name === 'name') {
+      // change name font-size to fit
+      fitty(".name-output", { maxSize: 38 });
+    }
   }
 
   async handleSubmit(e) {
@@ -37,6 +43,9 @@ class App extends Component {
     this.setState({
       showGeneratedImage: true,
     }, () => {
+      // change name font-size to fit
+      fitty(".name-output", { maxSize: 38 });
+
       let divImage = document.getElementById('generated-image');
       let button = document.getElementById('btn-download');
       let distanceFromTop =
