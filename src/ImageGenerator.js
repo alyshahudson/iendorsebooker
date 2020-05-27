@@ -1,10 +1,9 @@
 import React from 'react';
 
 export default function ImageGenerator(props) {
-	return (
+  return (
     // <canvas id="canvas" >
-		<div id="generated-image" className={props.bgColor}>
-
+    <div id="generated-image" className={props.bgColor}>
       {/* background image */}
       <img className="background" src={props.bgPhoto} alt="background" />
 
@@ -20,7 +19,10 @@ export default function ImageGenerator(props) {
         {/* endorsement */}
         <div className="endorsement">
           <h2 className="name-output">{props.name}</h2>
-          <h2> <i>endorses</i> Booker</h2>
+          <h2>
+            {' '}
+            <i>endorses</i> Booker
+          </h2>
         </div>
 
         <h3 className="blurb">{props.blurb}”</h3>
@@ -28,7 +30,10 @@ export default function ImageGenerator(props) {
 
       {/* fine print */}
       <div className="fine-print">
-        <p>Generated at IENDORSEBOOKER.COM <span className="bold">#IEndorseBooker</span></p>
+        <p>
+          Generated at IENDORSEBOOKER.COM{' '}
+          <span className="bold">#IEndorseBooker</span>
+        </p>
       </div>
 
       {/* background color */}
@@ -37,5 +42,5 @@ export default function ImageGenerator(props) {
       {/* color overlay */}
       <div className="overlay-color"></div>
     </div>
-	);
+  );
 }

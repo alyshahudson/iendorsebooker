@@ -1,132 +1,149 @@
-div#generated-image{
-	width: 32vw;
-	height: 32vw;
-	position: relative;
+div#generated-image {
+  width: 32vw;
+  height: 32vw;
+  position: relative;
 
-	// avatar
-	.avatar-container{
-		width: 150px;
-		height: 150px;
-		overflow: hidden;
-		@include flex(flex, row, center, center);
-		border-radius: 50%;
-		border: 8px solid white;
-		margin: 20px 0 0 20px;
-		z-index: 1;
+  // avatar
+  .avatar-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    @include flex(flex, row, center, center);
+    border-radius: 50%;
+    border: 8px solid white;
+    margin: 20px 0 0 20px;
+    z-index: 1;
 
-		img{
-			width: 100%;
-			min-height: 100%;
-		}
-	}
+    img {
+      width: 100%;
+      min-height: 100%;
+    }
+  }
 
-	// background image
-	.background{
-		width: 32vw;
-		height: auto;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 0;
-	}
+  // background image
+  .background {
+    width: 32vw;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
 
-	// text
-	.text{
-		margin-top: -15px;
+  // text
+  .text {
+    margin-top: -15px;
 
-		// location
-		.location{
-			background-color: black;
-			color: white;
-			width: fit-content;
-			padding: 0 30px;
-		}
+    // location
+    .location {
+      background-color: black;
+      color: white;
+      width: fit-content;
+      padding: 0 30px;
+    }
 
-		// endorsement
-		.endorsement{
-			margin: 5px 30px;
+    // endorsement
+    .endorsement {
+      margin: 5px 30px;
 
-			h2{
-				background-color: white;
-				color: red;
-				width: fit-content;
-				line-height: 1;
-			}
-		}
+      h2 {
+        background-color: white;
+        color: red;
+        width: fit-content;
+        line-height: 1;
+      }
+    }
 
-		// blurb
-		.blurb{
-			padding: 20px 50px;
-			position: relative;
-			color: white;
-			// 32vw (container height) / 1000
-			font-size: 40 * 0.032vw;
-			line-height: 1;
+    // blurb
+    .blurb {
+      padding: 50px;
+      position: relative;
+      color: white;
+      // 32vw (container height) / 1000
+      font-size: 40 * 0.032vw;
+      line-height: 1;
 
-			&:after{
-				content: '“';
-				@extend .h1;
-				position: absolute;
-				top: -20px;
-				left: 15px;
-				opacity: 0.3;
-			}
-		}
-	}
+      &:after {
+        content: '“';
+        @extend .h1;
+        position: absolute;
+        top: -20px;
+        left: 15px;
+        opacity: 0.3;
+      }
+    }
+  }
 
-	// fine print
-	.fine-print{
-		position: absolute;
-		bottom: 0;
-		left: 20px;
-		color: white;
+  // fine print
+  .fine-print {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: white;
 
-		p{ font-size: 10px; }
-	}
+    p {
+      font-size: 10px;
+    }
+  }
 
-	// base color
-	.background-color{
-		height: 17vw;
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		z-index: 1;
-	}
+  // base color
+  .background-color {
+    height: 17vw;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
 
-	// color overlay
-	.overlay-color{
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0.4;
-		z-index: 2;
-	}
+  // color overlay
+  .overlay-color {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: 2;
+  }
 
-	&.redBg{
-		.background-color{ background-color: red; }
-		.overlay-color{ background-color: red; }
-	}
-	&.orangeBg{
-		.background-color{ background-color: orange; }
-		.overlay-color{ background-color: orange; }
-	}
-	&.yellowBg{
-		.background-color{ background-color: yellow; }
-		.overlay-color{ background-color: yellow; }
-	}
+  &.purpleBg {
+    .background-color {
+      background-color: #2a1e51;
+    }
+    .overlay-color {
+      background-color: #2a1e51;
+    }
+  }
+  &.yellowBg {
+    .background-color {
+      background-color: #f6c54f;
+    }
+    .overlay-color {
+      background-color: #f6c54f;
+    }
+  }
+  &.greenBg {
+    .background-color {
+      background-color: #4e9d85;
+    }
+    .overlay-color {
+      background-color: #4e9d85;
+    }
+  }
 
+  // text and avatar z-index because html2canvas on safari cannot take negative zindex
+  .avatar,
+  .avatar-container {
+    position: relative;
+    z-index: 4;
+  }
 
-	// text and avatar z-index because html2canvas on safari cannot take negative zindex
-	.avatar, .avatar-container{
-		position: relative;
-		z-index: 4;
-	}
-
-	h3, h2, p, .text{
-		position: relative;
-		z-index: 5
-	}
+  h3,
+  h2,
+  p,
+  .text {
+    position: relative;
+    z-index: 5;
+  }
 }

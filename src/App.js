@@ -18,7 +18,7 @@ class App extends Component {
       bgPhoto: '',
       bgColor: '',
       showGeneratedImage: false,
-      isIE: false
+      isIE: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.readFile = this.readFile.bind(this);
@@ -27,27 +27,33 @@ class App extends Component {
   }
 
   handleChange(e) {
-    this.setState({
-      ...this.state,
-      [e.target.name]: e.target.value,
-    }, () => this.makeCanvas());
+    this.setState(
+      {
+        ...this.state,
+        [e.target.name]: e.target.value,
+      },
+      () => this.makeCanvas()
+    );
 
     if (e.target.name === 'name') {
       // change name font-size to fit
-      fitty(".name-output", { maxSize: 38 });
+      fitty('.name-output', { maxSize: 38 });
     }
   }
 
-   handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
 
     // change name font-size to fit
-    fitty(".name-output", { maxSize: 38 });
+    fitty('.name-output', { maxSize: 38 });
 
-    this.setState({
-      ...this.state,
-      showGeneratedImage: true
-    }, () => this.makeCanvas())
+    this.setState(
+      {
+        ...this.state,
+        showGeneratedImage: true,
+      },
+      () => this.makeCanvas()
+    );
   }
 
   makeCanvas() {
@@ -58,7 +64,7 @@ class App extends Component {
     if (this.state.showGeneratedImage) {
       let distanceFromTop =
         divImage.getBoundingClientRect().top + window.pageYOffset;
-  
+
       // create canvas from html element
       html2canvas(divImage, {
         useCORS: true,
@@ -86,12 +92,11 @@ class App extends Component {
     let old_ie = browser.indexOf('MSIE ');
     let new_ie = browser.indexOf('Trident/');
 
-
     this.setState({
-      bgColor:"redBg",
-      bgPhoto: "/img/photo1.png",
-      isIE: (old_ie > -1) || (new_ie > -1)
-    })
+      bgColor: 'purpleBg',
+      bgPhoto: '/img/photo1.png',
+      isIE: old_ie > -1 || new_ie > -1,
+    });
   }
 
   render() {
@@ -116,10 +121,8 @@ class App extends Component {
                 <h2 class="ie">Sorry, this is not a supported browser</h2>
               </div>
             ) : (
-
               <div className="left-group">
                 <form onSubmit={this.handleSubmit}>
-  
                   {/* name */}
                   <div className="input-group standard">
                     <input
@@ -132,7 +135,7 @@ class App extends Component {
                     />
                     <label htmlFor="name">Name</label>
                   </div>
-  
+
                   {/* location */}
                   <div className="input-group standard">
                     <input
@@ -145,7 +148,7 @@ class App extends Component {
                     />
                     <label htmlFor="location">Job Title/Location</label>
                   </div>
-  
+
                   {/* why */}
                   <div className="input-group standard">
                     <textarea
@@ -154,13 +157,14 @@ class App extends Component {
                       placeholder="Your text here"
                       rows="6"
                       value={this.state.blurb}
+                      maxLength="475"
                       required
                     />
                     <label htmlFor="blurb">
                       Why do you endorse Charles Booker?
                     </label>
                   </div>
-  
+
                   {/* photo upload */}
                   <div className="input-group non-text">
                     <input
@@ -172,23 +176,15 @@ class App extends Component {
                     <label htmlFor="inputImg">Upload photo</label>
                     <img id="output" src={this.state.file} alt="" />
                   </div>
-  
+
                   {/* colors */}
                   <div className="input-group non-text colors">
                     <input
                       type="radio"
                       name="bgColor"
-                      id="redBG"
-                      value="redBg"
-                      checked={this.state.bgColor === "redBg"}
-                      onChange={this.handleChange}
-                    />
-                    <input
-                      type="radio"
-                      name="bgColor"
-                      id="orangeBG"
-                      value="orangeBg"
-                      checked={this.state.bgColor === "orangeBg"}
+                      id="purpleBG"
+                      value="purpleBg"
+                      checked={this.state.bgColor === 'purpleBg'}
                       onChange={this.handleChange}
                     />
                     <input
@@ -196,12 +192,20 @@ class App extends Component {
                       name="bgColor"
                       id="yellowBG"
                       value="yellowBg"
-                      checked={this.state.bgColor === "yellowBg"}
+                      checked={this.state.bgColor === 'yellowBg'}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      type="radio"
+                      name="bgColor"
+                      id="greenBG"
+                      value="greenBg"
+                      checked={this.state.bgColor === 'greenBg'}
                       onChange={this.handleChange}
                     />
                     <label htmlFor="bgColor">Color</label>
                   </div>
-  
+
                   {/* image */}
                   <div className="input-group non-text image-selector">
                     <div className="options">
@@ -211,7 +215,7 @@ class App extends Component {
                           name="bgPhoto"
                           id="choice-1"
                           value="/img/photo1.png"
-                          checked={this.state.bgPhoto === "/img/photo1.png"}
+                          checked={this.state.bgPhoto === '/img/photo1.png'}
                           onChange={this.handleChange}
                         />
                         <img src="/img/photo1.png" name="photo1" alt="" />
@@ -222,7 +226,7 @@ class App extends Component {
                           name="bgPhoto"
                           id="choice-2"
                           value="/img/photo2.jpg"
-                          checked={this.state.bgPhoto === "/img/photo2.jpg"}
+                          checked={this.state.bgPhoto === '/img/photo2.jpg'}
                           onChange={this.handleChange}
                         />
                         <img src="/img/photo2.jpg" name="photo2" alt="" />
@@ -233,16 +237,16 @@ class App extends Component {
                           name="bgPhoto"
                           id="choice-3"
                           value="/img/photo3.jpg"
-                          checked={this.state.bgPhoto === "/img/photo3.jpg"}
+                          checked={this.state.bgPhoto === '/img/photo3.jpg'}
                           onChange={this.handleChange}
                         />
                         <img src="/img/photo3.jpg" name="photo3" alt="" />
                       </div>
                     </div>
-  
+
                     <label htmlFor="bgPhoto">Image</label>
                   </div>
-  
+
                   {/* submit */}
                   <input type="submit" name="Generate!" />
                 </form>
@@ -251,8 +255,8 @@ class App extends Component {
 
             <div className="right-group">
               {/* generated image */}
-               { this.state.showGeneratedImage ? (
-                 <div>
+              {this.state.showGeneratedImage ? (
+                <div>
                   <ImageGenerator
                     name={this.state.name}
                     location={this.state.location}
@@ -264,17 +268,18 @@ class App extends Component {
 
                   {/* download button */}
                   <a
-                  href="#top"
-                  className="button"
-                  id="btn-download"
-                  download="myendorsement.png"
-                >Download</a>
-              </div>
-
-            ) : ( 
-              // example image
-              <img className="example" src="/img/example.png" alt="example" /> 
-            )}       
+                    href="#top"
+                    className="button"
+                    id="btn-download"
+                    download="myendorsement.png"
+                  >
+                    Download
+                  </a>
+                </div>
+              ) : (
+                // example image
+                <img className="example" src="/img/example.png" alt="example" />
+              )}
 
               {/* social */}
               <div className="social">
