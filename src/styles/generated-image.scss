@@ -33,7 +33,6 @@ div#generated-image{
 	// text
 	.text{
 		margin-top: -15px;
-		width: 31vw;
 
 		// location
 		.location{
@@ -45,11 +44,14 @@ div#generated-image{
 
 		// endorsement
 		.endorsement{
-			background-color: white;
-			color: red;
-			width: fit-content;
-			padding: 5px 30px;
-			line-height: 1;
+			margin: 5px 30px;
+
+			h2{
+				background-color: white;
+				color: red;
+				width: fit-content;
+				line-height: 1;
+			}
 		}
 
 		// blurb

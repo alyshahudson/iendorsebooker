@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 export default function ImageGenerator(props) {
 	return (
@@ -16,8 +16,13 @@ export default function ImageGenerator(props) {
       {/* text */}
       <div className="text">
         {props.location && <h3 className="location">{props.location}</h3>}
-        <h2 className="endorsement name-output">{props.name}</h2>
-        <h2 className="endorsement"> <i>endorses</i> Booker</h2>
+
+        {/* endorsement */}
+        <div className="endorsement">
+          <h2 className="name-output">{props.name}</h2>
+          <h2> <i>endorses</i> Booker</h2>
+        </div>
+
         <h3 className="blurb">{props.blurb}”</h3>
       </div>
 

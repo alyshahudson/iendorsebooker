@@ -22,7 +22,6 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.readFile = this.readFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.toggleImage = this.toggleImage.bind(this);
     this.makeCanvas = this.makeCanvas.bind(this);
   }
 
@@ -30,7 +29,7 @@ class App extends Component {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value,
-    });
+    }, () => this.makeCanvas);
 
     if (e.target.name === 'name') {
       // change name font-size to fit
@@ -44,10 +43,10 @@ class App extends Component {
     // change name font-size to fit
     fitty(".name-output", { maxSize: 38 });
 
-    console.log("submit state    " + this.state.bgPhoto)
     this.setState({
-      ...this.state, showGeneratedImage: true,
-    },() => this.makeCanvas)
+      ...this.state,
+      showGeneratedImage: true
+    }, () => this.makeCanvas)
   
   }
 
@@ -69,15 +68,6 @@ class App extends Component {
         button.href = base64;
       });
 
-  }
-
-  toggleImage() {
-    if (this.state.showGeneratedImage === false) {
-      this.setState({
-        ...this.state,
-        showGeneratedImage: true,
-      });
-    }
   }
 
   readFile(e) {
@@ -258,7 +248,6 @@ class App extends Component {
                   className="button"
                   id="btn-download"
                   download="myendorsement.png"
-                  onClick={this.makeCanvas}
                 >Download</a>
               </div>
 
