@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       name: '',
       location: '',
-      file: null,
+      file: '/img/default.jpg',
       blurb: '',
       bgPhoto: '',
       bgColor: '',
@@ -22,6 +22,7 @@ class App extends Component {
     this.readFile = this.readFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleImage = this.toggleImage.bind(this);
+    this.makeCanvas = this.makeCanvas.bind(this);
   }
 
   handleChange(e) {
@@ -31,12 +32,18 @@ class App extends Component {
     });
   }
 
-  async handleSubmit(e) {
+   handleSubmit(e) {
     e.preventDefault();
 
+    console.log("submit state    " + this.state.bgPhoto)
     this.setState({
-      showGeneratedImage: true,
-    }, () => {
+      ...this.state, showGeneratedImage: true,
+    },() => this.makeCanvas)
+  
+  }
+
+   makeCanvas() {
+    console.log("here")
       let divImage = document.getElementById('generated-image');
       let button = document.getElementById('btn-download');
       let distanceFromTop =
@@ -49,14 +56,16 @@ class App extends Component {
       }).then((canvas) => {
         let base64 = canvas.toDataURL('image/png');
         // make base64 of canvas the href for download button
+        console.log('now HERE')
         button.href = base64;
       });
-    });
+
   }
 
   toggleImage() {
     if (this.state.showGeneratedImage === false) {
       this.setState({
+        ...this.state,
         showGeneratedImage: true,
       });
     }
@@ -240,6 +249,7 @@ class App extends Component {
                   className="button"
                   id="btn-download"
                   download="myendorsement.png"
+                  onClick={this.makeCanvas}
                 >Download</a>
               </div>
 
