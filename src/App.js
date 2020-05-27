@@ -5,6 +5,7 @@ import { ReactComponent as InstagramIcon } from './photos/instagram.svg';
 import './App.scss';
 import ImageGenerator from './ImageGenerator';
 import html2canvas from 'html2canvas';
+import fitty from 'fitty';
 
 class App extends Component {
   constructor(props) {
@@ -30,10 +31,18 @@ class App extends Component {
       ...this.state,
       [e.target.name]: e.target.value,
     });
+
+    if (e.target.name === 'name') {
+      // change name font-size to fit
+      fitty(".name-output", { maxSize: 38 });
+    }
   }
 
    handleSubmit(e) {
     e.preventDefault();
+
+    // change name font-size to fit
+    fitty(".name-output", { maxSize: 38 });
 
     console.log("submit state    " + this.state.bgPhoto)
     this.setState({
