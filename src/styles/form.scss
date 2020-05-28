@@ -205,10 +205,12 @@ form {
       position: relative;
       width: 48%;
       margin: 0 0 20px;
+      overflow: hidden;
+      border-radius: 5px;
 
       img {
         width: 100%;
-        height: 120px;
+        height: auto;
         position: absolute;
         top: 0;
         right: 0;
@@ -244,6 +246,14 @@ form {
       padding: 4px;
       background-color: var(--body-background);
       z-index: 1;
+    }
+  }
+
+  @media #{$phone} {
+    .input-group.image-selector {
+      .img-radio{
+        input{ height: 90px; }
+      }
     }
   }
 }
