@@ -57,6 +57,7 @@ class App extends Component {
   }
 
   makeCanvas() {
+    console.log('here')
     let divImage = document.getElementById('generated-image');
     let button = document.getElementById('btn-download');
 
@@ -68,12 +69,14 @@ class App extends Component {
       // create canvas from html element
       html2canvas(divImage, {
         useCORS: true,
+        scrollX: 0,
         scrollY: 0,
-        y: distanceFromTop,
+        y: -window.scrollY,
       }).then((canvas) => {
         let base64 = canvas.toDataURL('image/png');
         // make base64 of canvas the href for download button
         button.href = base64;
+        console.log('here too')
       });
     }
   }
