@@ -277,17 +277,6 @@
 		"plM": 52780316221407,
 		"prP": 0
 		},
-	"/iendorsebooker/src/serviceWorker.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "/iendorsebooker/src/serviceWorker-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
 	"/iendorsebooker/src/setupTests.js": {
 		"bF": 0,
 		"ft": 64,
