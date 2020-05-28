@@ -8,111 +8,116 @@ import html2canvas from 'html2canvas';
 import fitty from 'fitty';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      location: '',
-      file: '/img/default.jpg',
-      blurb: '',
-      bgPhoto: '',
-      bgColor: '',
-      showGeneratedImage: false,
-      isIE: false,
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.readFile = this.readFile.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.makeCanvas = this.makeCanvas.bind(this);
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: '',
+			location: '',
+			file: '/img/default.jpg',
+			blurb: '',
+			bgPhoto: '',
+			bgColor: '',
+			showGeneratedImage: false,
+			isIE: false,
+		};
+		this.handleChange = this.handleChange.bind(this);
+		this.readFile = this.readFile.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.makeCanvas = this.makeCanvas.bind(this);
+	}
 
-  handleChange(e) {
-    this.setState(
-      {
-        ...this.state,
-        [e.target.name]: e.target.value,
-      },
-      () => this.makeCanvas()
-    );
+	handleChange(e) {
+		this.setState(
+			{
+				...this.state,
+				[e.target.name]: e.target.value,
+			},
+			() => this.makeCanvas()
+		);
 
-    if (e.target.name === 'name') {
-      // change name font-size to fit
-      fitty('.name-output', { maxSize: 38 });
-    }
-  }
+		if (e.target.name === 'name') {
+			// change name font-size to fit
+			fitty('.name-output', { maxSize: 38 });
+		}
+	}
 
-  handleSubmit(e) {
-    e.preventDefault();
+	handleSubmit(e) {
+		e.preventDefault();
 
-    // change name font-size to fit
-    fitty('.name-output', { maxSize: 38 });
+		// change name font-size to fit
+		fitty('.name-output', { maxSize: 38 });
 
-    this.setState(
-      {
-        ...this.state,
-        showGeneratedImage: true,
-      },
-      () => this.makeCanvas()
-    );
-  }
+		this.setState(
+			{
+				...this.state,
+				showGeneratedImage: true,
+			},
+			() => this.makeCanvas()
+		);
+	}
 
-  makeCanvas() {
-    let divImage = document.getElementById('generated-image');
-    let button = document.getElementById('btn-download');
+	makeCanvas() {
+		let divImage = document.getElementById('generated-image');
+		let button = document.getElementById('btn-download');
 
-    // otherwise generated-image and button are hidden
-    if (this.state.showGeneratedImage) {
-      let distanceFromTop =
-        divImage.getBoundingClientRect().top + window.pageYOffset;
+		// otherwise generated-image and button are hidden
+		if (this.state.showGeneratedImage) {
+			let distanceFromTop =
+				divImage.getBoundingClientRect().top + window.pageYOffset;
 
-      // create canvas from html element
-      html2canvas(divImage, {
-        useCORS: true,
-        y: distanceFromTop,
-      }).then((canvas) => {
-        let base64 = canvas.toDataURL('image/png');
-        // make base64 of canvas the href for download button
-        button.href = base64;
-      });
-    }
-  }
+			// create canvas from html element
+			html2canvas(divImage, {
+				useCORS: true,
+				y: distanceFromTop,
+			}).then((canvas) => {
+				let base64 = canvas.toDataURL('image/png');
+				// make base64 of canvas the href for download button
+				button.href = base64;
+			});
+		}
+	}
 
-  readFile(e) {
-    if (e.target.files[0]) {
-      this.setState({
-        ...this.state,
-        file: URL.createObjectURL(e.target.files[0]),
-      });
-    }
-  }
+	readFile(e) {
+		if (e.target.files[0]) {
+			this.setState({
+				...this.state,
+				file: URL.createObjectURL(e.target.files[0]),
+			});
+		}
+	}
 
-  componentDidMount() {
-    // check browser
-    let browser = window.navigator.userAgent;
-    let old_ie = browser.indexOf('MSIE ');
-    let new_ie = browser.indexOf('Trident/');
+	componentDidMount() {
+		// check browser
+		let browser = window.navigator.userAgent;
+		let old_ie = browser.indexOf('MSIE ');
+		let new_ie = browser.indexOf('Trident/');
 
-    this.setState({
-      bgColor: 'purpleBg',
-      bgPhoto: '/img/photo1.png',
-      isIE: old_ie > -1 || new_ie > -1,
-    });
-  }
+		this.setState({
+			bgColor: 'purpleBg',
+			bgPhoto: '/img/photo1.png',
+			isIE: old_ie > -1 || new_ie > -1,
+		});
+	}
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <section>
-            <article className="textual">
-              <h1>I Endorse Booker</h1>
-              <p>
-                Create your own endorsement graphic for Booker to share over
-                Instagram, Twitter, Facebook, emails, and so forth!
-              </p>
-            </article>
-          </section>
-        </header>
+	render() {
+		return (
+			<div className="App">
+				<header className="App-header">
+					<section>
+						<article className="textual">
+							<img
+								className="logo"
+								src="/img/booker-logo.png"
+								alt="booker-campaign-logo"
+							/>
+							<h1>I Endorse Booker</h1>
+							<p>
+								Create your own endorsement graphic for Booker to share over
+								Instagram, Twitter, Facebook, emails, and so forth!
+							</p>
+						</article>
+					</section>
+				</header>
 
         <section className="body">
           {this.state.isIE === true ? (
@@ -173,7 +178,11 @@ class App extends Component {
                     onChange={this.readFile}
                   />
                   <label htmlFor="inputImg">Upload photo</label>
-                  <img id="output" src={this.state.file} alt="" />
+                  <img id="output" src={
+												this.state.file === '/img/default.jpg'
+													? null
+													: this.state.file
+											} alt="" />
                 </div>
 
                 {/* colors */}

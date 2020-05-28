@@ -72,7 +72,6 @@ section.body {
 	// NOTE: tablet-portrait
 	@media #{$tablet-portrait} {
 		@include flex(flex, column, flex-start, center);
-		// flex-direction: column-reverse;
 
 		.left-group,
 		.right-group {
@@ -84,17 +83,11 @@ section.body {
 	// NOTE: phone
 	@media #{$phone} {
 		@include flex(flex, column, flex-start, center);
-		// flex-direction: column-reverse;
 
 		.left-group,
 		.right-group {
 			width: 300px;
 			margin: auto;
-
-			div{
-				// height: auto;
-				// width: 300px;
-			}
 		}
 	}
 }
