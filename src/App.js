@@ -57,6 +57,7 @@ class App extends Component {
   }
 
   makeCanvas() {
+    console.log('back')
     let divImage = document.getElementById('generated-image');
     let button = document.getElementById('btn-download');
 
