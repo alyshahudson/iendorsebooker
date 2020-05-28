@@ -4,23 +4,23 @@ header {
   color: $booker-yellow;
   padding: $vertical-padding $horizontal-padding;
 
+  .logo {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
   .textual {
-    p {
-      max-width: 60vw;
-    }
+    text-align: center;
+    padding-top: 0;
   }
 
   @media #{$phone} {
     .textual {
-      text-align: center;
-
       p {
         max-width: unset;
       }
     }
-  }
-
-  .logo {
-    width: 80vw;
   }
 }
