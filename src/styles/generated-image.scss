@@ -3,6 +3,7 @@ div#generated-image {
   height: 500px;
   position: relative;
   padding-top: 20px;
+  overflow: hidden;
 
   // avatar
   .avatar-container {

@@ -70,12 +70,11 @@ class App extends Component {
         scrollX: 0,
         scrollY: -window.scrollY,
         height: divImage.offsetHeight,
-        width: divImage.offsetWidth
-        // y: distanceFromTop,
+        width: divImage.offsetWidth,
+        y: distanceFromTop,
       }).then((canvas) => {
-        let base64 = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
-        console.log('BASE64', base64)
         // make base64 of canvas the href for download button
+        let base64 = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
         button.href = base64;
       });
     }
