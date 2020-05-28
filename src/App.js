@@ -37,7 +37,7 @@ class App extends Component {
 
 		if (e.target.name === 'name') {
 			// change name font-size to fit
-			fitty('.name-output', { maxSize: 38 });
+			fitty('.name-output', { maxSize: 50 });
 		}
 	}
 
@@ -45,7 +45,7 @@ class App extends Component {
 		e.preventDefault();
 
 		// change name font-size to fit
-		fitty('.name-output', { maxSize: 38 });
+		fitty('.name-output', { maxSize: 50 });
 
 		this.setState(
 			{
