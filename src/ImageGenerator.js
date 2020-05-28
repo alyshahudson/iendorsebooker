@@ -25,7 +25,10 @@ export default function ImageGenerator(props) {
           </h2>
         </div>
 
-        <h3 className="blurb">{props.blurb}”</h3>
+        <div className="blurb">
+          <span className="quote-mark">“</span>
+          <h3>{props.blurb}”</h3>
+        </div>
       </div>
 
       {/* fine print */}

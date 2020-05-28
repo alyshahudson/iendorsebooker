@@ -1,13 +1,13 @@
 section.body {
-  padding: $vertical-padding $horizontal-padding;
-  @include flex(flex, row, flex-start, space-between);
+  padding: $vertical-padding 0;
+  @include flex(flex, row, flex-start, center);
 
+	.left-group{ margin-right: 30px }
 
 	.left-group,
 	.right-group {
-		width: 32vw;
-		min-width:380px;
-		@include flex(flex, column, flex-start, flex-start);
+		width: 500px;
+		@include flex(flex, column, flex-start, space-evenly);
 
 		// form
 		form {
@@ -20,7 +20,7 @@ section.body {
 
 		// example image
 		.example {
-			width: 32vw;
+			width: 100%;
 			height: auto;
 		}
 
@@ -62,12 +62,38 @@ section.body {
 		}
 	}
 
-  @media #{$phone} {
-		.textual {
-			display: block;
-			.left-group,
-			.right-group {
-			width: 100%;
+	// NOTE: tablet
+	@media #{$tablet} {
+		.left-group {
+			width: 400px;
+		}
+	}
+
+	// NOTE: tablet-portrait
+	@media #{$tablet-portrait} {
+		@include flex(flex, column, flex-start, center);
+		// flex-direction: column-reverse;
+
+		.left-group,
+		.right-group {
+			width: 500px;
+			margin: auto;
+		}
+	}
+
+	// NOTE: phone
+	@media #{$phone} {
+		@include flex(flex, column, flex-start, center);
+		// flex-direction: column-reverse;
+
+		.left-group,
+		.right-group {
+			width: 300px;
+			margin: auto;
+
+			div{
+				// height: auto;
+				// width: 300px;
 			}
 		}
 	}

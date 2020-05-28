@@ -156,7 +156,7 @@ class App extends Component {
                     placeholder="Your text here"
                     rows="6"
                     value={this.state.blurb}
-                    maxLength="475"
+                    maxLength="400"
                     required
                   />
                   <label htmlFor="blurb">

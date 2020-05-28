@@ -23,7 +23,6 @@ h1, .h1{
 
 h2, .h2{
 	font-family: jubilat, serif;
-	// 32vw (container width) / 1000
 	font-size: 38px;
 	font-weight: bold;
 	margin: 0;
@@ -31,8 +30,7 @@ h2, .h2{
 
 h3, .h3{
 	font-family: freight-sans-pro, Helvetica, Helvetica Neue, Arial;
-	// 32vw (container height) / 1000
-	font-size: 30 * 0.032vw;
+	font-size: 15px;
 	font-weight: bold;
 	margin: 0;
 }
