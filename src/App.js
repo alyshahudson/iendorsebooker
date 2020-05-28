@@ -62,8 +62,7 @@ class App extends Component {
 
     // otherwise generated-image and button are hidden
     if (this.state.showGeneratedImage) {
-      let distanceFromTop =
-        divImage.getBoundingClientRect().top + window.pageYOffset;
+      let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
 
       // create canvas from html element
       html2canvas(divImage, {
@@ -74,8 +73,8 @@ class App extends Component {
         width: divImage.offsetWidth
         // y: distanceFromTop,
       }).then((canvas) => {
-        let base64 = canvas.toDataURL();
-        console.log(base64)
+        let base64 = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+        console.log('BASE64', base64)
         // make base64 of canvas the href for download button
         button.href = base64;
       });
