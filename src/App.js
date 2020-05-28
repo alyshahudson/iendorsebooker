@@ -68,6 +68,7 @@ class App extends Component {
       // create canvas from html element
       html2canvas(divImage, {
         useCORS: true,
+        scrollY: 0,
         y: distanceFromTop,
       }).then((canvas) => {
         let base64 = canvas.toDataURL('image/png');
