@@ -70,7 +70,7 @@ class App extends Component {
         useCORS: true,
         scrollX: 0,
         scrollY: -window.scrollY,
-        y: distanceFromTop,
+        // y: distanceFromTop,
       }).then((canvas) => {
         let base64 = canvas.toDataURL('image/png');
         // make base64 of canvas the href for download button
