@@ -14,7 +14,7 @@ div#generated-image {
     border-radius: 50%;
     border: 8px solid white;
     margin: 0 0 0 20px;
-    z-index: 1;
+    // z-index: 1;
 
     img {
       width: 100%;
@@ -30,7 +30,7 @@ div#generated-image {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
+    // z-index: 0;
   }
 
   // text
@@ -99,7 +99,7 @@ div#generated-image {
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 1;
+    // z-index: 1;
   }
 
   // color overlay
@@ -110,7 +110,7 @@ div#generated-image {
     top: 0;
     left: 0;
     opacity: 0.4;
-    z-index: 2;
+    // z-index: 2;
   }
 
   &.purpleBg {
@@ -142,7 +142,7 @@ div#generated-image {
   .avatar,
   .avatar-container {
     position: relative;
-    z-index: 4;
+    // z-index: 4;
   }
 
   h3,
@@ -150,7 +150,7 @@ div#generated-image {
   p,
   .text {
     position: relative;
-    z-index: 5;
+    // z-index: 5;
   }
 
   // NOTE: phone
