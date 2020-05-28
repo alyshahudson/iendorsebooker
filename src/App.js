@@ -57,7 +57,6 @@ class App extends Component {
   }
 
   makeCanvas() {
-    console.log('back')
     let divImage = document.getElementById('generated-image');
     let button = document.getElementById('btn-download');
 
@@ -69,6 +68,7 @@ class App extends Component {
       // create canvas from html element
       html2canvas(divImage, {
         useCORS: true,
+        foreignObjectRendering: true,
         scrollX: 0,
         scrollY: -window.scrollY,
         // y: distanceFromTop,
