@@ -34,7 +34,7 @@ form {
       cursor: pointer;
 
       &:hover {
-        background-color: #4e9d85;
+        background-color: $booker-green;
         color: var(--body-background);
       }
     }
@@ -183,13 +183,13 @@ form {
     }
 
     #purpleBG {
-      background-color: #2a1e51;
+      background-color: $booker-purple;
     }
     #yellowBG {
-      background-color: #f6c54f;
+      background-color: $booker-yellow;
     }
     #greenBG {
-      background-color: #4e9d85;
+      background-color: $booker-green;
     }
   }
 
@@ -251,8 +251,10 @@ form {
 
   @media #{$phone} {
     .input-group.image-selector {
-      .img-radio{
-        input{ height: 90px; }
+      .img-radio {
+        input {
+          height: 90px;
+        }
       }
     }
   }
