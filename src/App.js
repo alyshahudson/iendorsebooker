@@ -57,7 +57,7 @@ class App extends Component {
   }
 
   makeCanvas() {
-    console.log('back')
+    console.log('and now?')
     let divImage = document.getElementById('generated-image');
     let button = document.getElementById('btn-download');
 
@@ -65,12 +65,14 @@ class App extends Component {
     if (this.state.showGeneratedImage) {
       let distanceFromTop =
         divImage.getBoundingClientRect().top + window.pageYOffset;
-
+console.log(divImage.offsetHeight, divImage.offsetWidth)
       // create canvas from html element
       html2canvas(divImage, {
         useCORS: true,
         scrollX: 0,
         scrollY: -window.scrollY,
+        height: divImage.offsetHeight,
+        width: divImage.offsetWidth
         // y: distanceFromTop,
       }).then((canvas) => {
         let base64 = canvas.toDataURL('image/png');
