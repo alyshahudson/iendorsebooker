@@ -18,8 +18,6 @@ header {
 
   @media #{$phone} {
     .textual {
-      text-align: center;
-
       p {
         max-width: unset;
       }
