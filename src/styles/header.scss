@@ -1,26 +1,31 @@
 header {
-	width: 100vw;
-	background-color: #2a1e51;
-	color: #f6c54f;
-	padding: $vertical-padding $horizontal-padding;
+  width: 100vw;
+  background-color: #2a1e51;
+  color: #f6c54f;
+  padding: $vertical-padding $horizontal-padding;
 
-	.textual {
-		p {
-			max-width: 60vw;
-		}
-	}
+  .textual {
+    text-align: center;
+    padding-top: 0;
+    // p {
+    //   max-width: 60vw;
+    // }
+  }
 
-	@media #{$phone} {
-		.textual {
-			text-align: center;
+  .logo {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
 
-			p {
-				max-width: unset;
-			}
-		}
-	}
+  @media #{$phone} {
+    .textual {
+      text-align: center;
 
-	.logo {
-		width: 80vw;
-	}
+      p {
+        max-width: unset;
+      }
+    }
+  }
 }

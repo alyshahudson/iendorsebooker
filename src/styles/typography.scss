@@ -4,42 +4,53 @@ Typography
 ----------------------------------------
 */
 
-body{
-	font: 20px/1.6 freight-sans-condensed-pro, Helvetica, Helvetica Neue, Arial;
-	font-weight: 400;
+body {
+  font: 20px/1.6 freight-sans-condensed-pro, Helvetica, Helvetica Neue, Arial;
+  font-weight: 400;
 }
 
-h1, .h1{
-	margin: 0;
-	font-family: jubilat,serif;
-	font-weight: 700;
-	font-size: 5em;
-	line-height: 1.25;
-	margin-bottom: 20px;
+h1,
+.h1 {
+  margin: 0;
+  font-family: jubilat, serif;
+  font-weight: 700;
+  font-size: 5em;
+  line-height: 1.25;
+  // margin-bottom: 20px;
 
-	@media #{$tablet} { font-size: 3em; }
-	@media #{$phone} { font-size: 2.5em; }
+  @media #{$tablet} {
+    font-size: 3em;
+  }
+  @media #{$phone} {
+    font-size: 2.5em;
+  }
 }
 
-h2, .h2{
-	font-family: jubilat, serif;
-	font-size: 50px;
-	font-weight: bold;
-	margin: 0;
+h2,
+.h2 {
+  font-family: jubilat, serif;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
 }
 
-h3, .h3{
-	font-family: freight-sans-pro, Helvetica, Helvetica Neue, Arial;
-	font-size: 15px;
-	font-weight: bold;
-	margin: 0;
+h3,
+.h3 {
+  font-family: freight-sans-pro, Helvetica, Helvetica Neue, Arial;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
 }
 
-p{ margin: 0; }
+p {
+  margin: 0;
+}
 
 a {
-	color: var(--color-Link);
-	text-decoration: none;
+  color: var(--color-Link);
+  text-decoration: none;
 }
 
-span.bold{ font-weight: bold; }
+span.bold {
+  font-weight: bold;
+}
