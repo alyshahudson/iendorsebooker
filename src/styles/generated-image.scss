@@ -6,192 +6,196 @@ div#generated-image {
 
   // avatar
   .avatar-container {
-		width: 175px;
-		height: 175px;
-		overflow: hidden;
-		@include flex(flex, row, center, center);
-		border-radius: 50%;
-		border: 8px solid white;
-		margin: 0 0 0 20px;
-		z-index: 1;
+    width: 175px;
+    height: 175px;
+    overflow: hidden;
+    @include flex(flex, row, center, center);
+    border-radius: 50%;
+    border: 8px solid white;
+    margin: 0 0 0 20px;
+    z-index: 1;
 
-		img {
-			width: 100%;
-			height: auto;
-			min-height: 100%;
-		}
-	}
+    img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
+  }
 
-	// background image
-	.background {
-		width: 100%;
-		height: auto;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 0;
-	}
+  // background image
+  .background {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
 
-	// text
-	.text {
-		margin-top: -15px;
+  // text
+  .text {
+    margin-top: -15px;
 
-		// location
-		.location {
-			background-color: black;
-			color: white;
-			width: fit-content;
-			padding: 0 30px;
-		}
+    // location
+    .location {
+      background-color: black;
+      color: white;
+      width: fit-content;
+      padding: 0 30px;
+    }
 
-		// endorsement
-		.endorsement {
-			margin: 5px 30px;
+    // endorsement
+    .endorsement {
+      margin: 5px 30px;
 
-			h2 {
-				background-color: white;
-				color: red;
-				width: fit-content;
-				line-height: 1;
-			}
-		}
-		
-		// blurb
-		.blurb {
-			position: relative;
+      h2 {
+        background-color: white;
+        color: red;
+        width: fit-content;
+        line-height: 1;
+      }
+    }
 
-			span.quote-mark{
-				@extend .h1;
-				position: absolute;
-				top: -20px;
-				left: 15px;
-				opacity: 0.3;
-				color: white;
-			}
+    // blurb
+    .blurb {
+      position: relative;
 
-			h3{
-				padding: 20px 50px;
-				position: relative;
-				color: white;
-				font-size: 16px;
-				line-height: 1;
-			}
-		}
-	}
+      span.quote-mark {
+        @extend .h1;
+        position: absolute;
+        top: -20px;
+        left: 15px;
+        opacity: 0.3;
+        color: white;
+      }
 
-	// fine print
-	.fine-print {
-		position: absolute;
-		bottom: 10px;
-		left: 20px;
-		color: white;
+      h3 {
+        padding: 20px 50px;
+        position: relative;
+        color: white;
+        font-size: 16px;
+        line-height: 1;
+      }
+    }
+  }
 
-		p {
-			font-size: 10px;
-		}
-	}
+  // fine print
+  .fine-print {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: white;
 
-	// base color
-	.background-color {
-		height: 250px;
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		z-index: 1;
-	}
+    p {
+      font-size: 10px;
+    }
+  }
 
-	// color overlay
-	.overlay-color {
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0.4;
-		z-index: 2;
-	}
+  // base color
+  .background-color {
+    height: 250px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
 
-	&.purpleBg {
-		.background-color {
-			background-color: #2a1e51;
-		}
-		.overlay-color {
-			background-color: #2a1e51;
-		}
-	}
-	&.yellowBg {
-		.background-color {
-			background-color: #f6c54f;
-		}
-		.overlay-color {
-			background-color: #f6c54f;
-		}
-	}
-	&.greenBg {
-		.background-color {
-			background-color: #4e9d85;
-		}
-		.overlay-color {
-			background-color: #4e9d85;
-		}
-	}
+  // color overlay
+  .overlay-color {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: 2;
+  }
 
-	// text and avatar z-index because html2canvas on safari cannot take negative zindex
-	.avatar,
-	.avatar-container {
-		position: relative;
-		z-index: 4;
-	}
+  &.purpleBg {
+    .background-color {
+      background-color: $booker-purple;
+    }
+    .overlay-color {
+      background-color: $booker-purple;
+    }
+  }
+  &.yellowBg {
+    .background-color {
+      background-color: $booker-yellow;
+    }
+    .overlay-color {
+      background-color: $booker-yellow;
+    }
+  }
+  &.greenBg {
+    .background-color {
+      background-color: $booker-green;
+    }
+    .overlay-color {
+      background-color: $booker-green;
+    }
+  }
 
-	h3,
-	h2,
-	p,
-	.text {
-		position: relative;
-		z-index: 5;
-	}
+  // text and avatar z-index because html2canvas on safari cannot take negative zindex
+  .avatar,
+  .avatar-container {
+    position: relative;
+    z-index: 4;
+  }
 
-	// NOTE: phone
-	@media #{$phone} {
-		height: 300px;
-		width: 300px;
-		padding-top: 10px;
+  h3,
+  h2,
+  p,
+  .text {
+    position: relative;
+    z-index: 5;
+  }
 
-		// avatar
-		.avatar-container {
-			height: 100px;
-			width: 100px;
-			border: 2px solid white;
-			margin-left: 10px;
-		}
+  // NOTE: phone
+  @media #{$phone} {
+    height: 300px;
+    width: 300px;
+    padding-top: 10px;
 
-		// text
-		.text{
-			.location{
-				font-size: 10px;
-				padding-left: 20px;
-			}
+    // avatar
+    .avatar-container {
+      height: 100px;
+      width: 100px;
+      border: 2px solid white;
+      margin-left: 10px;
+    }
 
-			.endorsement{
-				margin-left: 20px;
-				
-				h2{ font-size: 25px; }
-			}
+    // text
+    .text {
+      .location {
+        font-size: 10px;
+        padding-left: 20px;
+      }
 
-			.blurb{
-				span.quote-mark{
-					top: -10px;
-					left: 10px;
-				}
-				h3{
-					padding: 5px 30px;
-					font-size: 9px;
-				}
-			}
-		}
+      .endorsement {
+        margin-left: 20px;
 
-		// base color
-		.background-color { height: 150px; }
-	}
+        h2 {
+          font-size: 25px;
+        }
+      }
+
+      .blurb {
+        span.quote-mark {
+          top: -10px;
+          left: 10px;
+        }
+        h3 {
+          padding: 5px 30px;
+          font-size: 9px;
+        }
+      }
+    }
+
+    // base color
+    .background-color {
+      height: 150px;
+    }
+  }
 }
