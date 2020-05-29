@@ -25,7 +25,6 @@ export default function ImageGenerator(props) {
         <div className="endorsement">
           <h2 className="name-output">{props.name}</h2>
           <h2>
-            {' '}
             <i>endorses</i> Booker
           </h2>
         </div>
@@ -41,6 +40,7 @@ export default function ImageGenerator(props) {
         <p>
           Generated at IENDORSEBOOKER.COM{' '}
           <span className="bold">#IEndorseBooker</span>
+          <img className="logo" src="/img/booker-logo.png" alt="Booker logo" />
         </p>
       </div>
 
