@@ -5,15 +5,15 @@ export default function ImageGenerator(props) {
     // <canvas id="canvas" >
     <div id="generated-image" className={props.bgColor}>
       {/* background image */}
-      <img className="background" src={props.bgPhoto} alt="background" style={{zIndex: 1}}/>
+      <img className="background" src={props.bgPhoto} alt="background" />
 
       {/* avatar */}
-      <div className="avatar-container" style={{zIndex: 300}}>
+      <div className="avatar-container">
         <img className="avatar" src={props.file} alt="avatar" />
       </div>
 
       {/* text */}
-      <div className="text" style={{zIndex: 700}}>
+      <div className="text">
         {props.location && <h3 className="location">{props.location}</h3>}
 
         {/* endorsement */}
@@ -40,10 +40,10 @@ export default function ImageGenerator(props) {
       </div>
 
       {/* background color */}
-      <div className="background-color" style={{zIndex: 50}}></div>
+      <div className="background-color"></div>
 
       {/* color overlay */}
-      <div className="overlay-color" style={{zIndex: 75}}></div>
+      <div className="overlay-color"></div>
     </div>
   );
 }
