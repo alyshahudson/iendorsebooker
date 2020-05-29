@@ -37,7 +37,7 @@ export default function ImageGenerator(props) {
       </div>
 
       {/* fine print */}
-      <div className="fine-print">
+      <div className="fine-print" style={{ zIndex: 3 }}>
         <p>
           Generated at IENDORSEBOOKER.COM{' '}
           <span className="bold">#IEndorseBooker</span>
