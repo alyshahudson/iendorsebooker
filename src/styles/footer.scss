@@ -1,6 +1,10 @@
 footer {
   width: 100vw;
-  background-color: $booker-purple;
-  color: $booker-yellow;
-  padding: $vertical-padding $horizontal-padding;
+  background-color: $booker-yellow;
+  padding: $vertical-small 0;
+
+  .disclaimer {
+    display: block;
+    margin: 0 auto;
+  }
 }

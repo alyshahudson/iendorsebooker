@@ -350,7 +350,7 @@ class App extends Component {
           </div>
         </section>
         <footer className="App-footer">
-          <img src="/img/disclaimer.png" alt="" />
+          <img className="disclaimer" src="/img/disclaimer.png" alt="Disclaimer" />
         </footer>
       </div>
     );
