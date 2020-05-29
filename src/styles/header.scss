@@ -1,26 +1,35 @@
 header {
   width: 100vw;
-  background-color: $booker-purple;
+  background-color: var(--header-background);
   color: $booker-yellow;
   padding: $vertical-padding $horizontal-padding;
+  @include flex(flex, column, center, flex-start);
 
-  .logo {
-    width: 80%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+  // logo
+  svg{
+    width: 25%;
+    margin-bottom: $vertical-padding;
+
+    .svg-name{ fill: var(--header-text); }
+    .svg-n, .svg-y{ fill: var(--header-text); }
   }
 
-  .textual {
+  .text {
     text-align: center;
-    padding-top: 0;
+    width: 60vw;
+    color: var(--header-text);
+  }
+
+  @media #{$tablet-portrait} {
+    .text{ width: 70vw; }
   }
 
   @media #{$phone} {
-    .textual {
-      p {
-        max-width: unset;
-      }
+    svg{
+      width: 60%;
+      margin-bottom: 20px;
     }
+
+    .text{ width: 100%; }
   }
 }

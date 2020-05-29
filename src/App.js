@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ReactComponent as TwitterIcon } from './icons/twitter.svg';
 import { ReactComponent as FacebookIcon } from './icons/facebook.svg';
 import { ReactComponent as InstagramIcon } from './icons/instagram.svg';
+import { ReactComponent as BookerLogo } from './icons/logo.svg';
 import './App.scss';
 import ImageGenerator from './ImageGenerator';
 import html2canvas from 'html2canvas';
@@ -121,21 +122,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+        {/* header */}
         <header className="App-header">
-          <section>
-            <article className="textual">
-              <img
-                className="logo"
-                src="/img/booker-logo.png"
-                alt="booker-campaign-logo"
-              />
-              <h1>I Endorse Booker</h1>
-              <p>
-                Create your own endorsement graphic for Booker to share over
-                Instagram, Twitter, Facebook, emails, and so forth!
-              </p>
-            </article>
-          </section>
+          <BookerLogo />
+          <div className="text">
+            <h1>I Endorse Booker</h1>
+            <p>
+              Create your own endorsement graphic for Booker to share over
+              Instagram, Twitter, Facebook, emails, and so forth!
+            </p>
+          </div>
         </header>
 
         <section className="body">

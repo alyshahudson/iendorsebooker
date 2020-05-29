@@ -53,7 +53,9 @@ div#generated-image {
         background-color: white;
         color: red;
         width: fit-content;
-        line-height: 1;
+        line-height: 1.2;
+
+        &.name-output{ margin-bottom: 2px; }
       }
     }
 
