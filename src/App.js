@@ -64,44 +64,40 @@ class App extends Component {
     if (this.state.showGeneratedImage) {
       let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
 
-  
-      html2canvas(divImage, {
+      // NOTE: mobile
+      if(window.innerWidth < 766){
+        // create canvas from html element
+        html2canvas(divImage, {
           useCORS: true,
+          scrollX: 0,
+          scrollY: -window.scrollY,
+          height: divImage.offsetHeight,
           y: distanceFromTop,
         }).then((canvas) => {
-          // make base64 of canvas the href for download button
-          let base64 = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
-          button.href = base64;
+          // convert canvas to blob
+          canvas.toBlob(function(blob) {
+            // set href of download button
+            button.href = URL.createObjectURL(blob);
+          });
         });
-
-      // if(window.innerWidth < 766){
-      //   // create canvas from html element
-      //   html2canvas(divImage, {
-      //     useCORS: true,
-      //     scrollX: 0,
-      //     scrollY: -window.scrollY,
-      //     height: divImage.offsetHeight,
-      //     width: divImage.offsetWidth,
-      //     y: distanceFromTop,
-      //   }).then((canvas) => {
-      //     // make base64 of canvas the href for download button
-      //     let base64 = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
-      //     button.href = base64;
-      //   });
-      // } else{
-      //   // create canvas from html element
-      //   html2canvas(divImage, {
-      //     useCORS: true,
-      //     scrollX: 0,
-      //     scrollY: -window.scrollY,
-      //     height: divImage.offsetHeight,
-      //     width: divImage.offsetWidth
-      //   }).then((canvas) => {
-      //     // make base64 of canvas the href for download button
-      //     let base64 = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
-      //     button.href = base64;
-      //   });
-      // }
+      }
+      // NOTE: desktop
+      else{
+        // create canvas from html element
+        html2canvas(divImage, {
+          useCORS: true,
+          scrollX: 0,
+          scrollY: -window.scrollY,
+          height: divImage.offsetHeight,
+          width: divImage.offsetWidth
+        }).then((canvas) => {
+          // convert canvas to blob
+          canvas.toBlob(function(blob) {
+            // set href of download button
+            button.href = URL.createObjectURL(blob);
+          });
+        });
+      }
     }
   }
 
