@@ -65,6 +65,7 @@ class App extends Component {
           scrollX: 0,
           scrollY: -window.scrollY,
           height: divImage.offsetHeight,
+          foreignObjectRendering: true,
           y: distanceFromTop,
         }).then((canvas) => {
           // convert canvas to blob
