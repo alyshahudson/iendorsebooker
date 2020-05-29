@@ -62,10 +62,11 @@ class App extends Component {
 
     // otherwise generated-image and button are hidden
     if (this.state.showGeneratedImage) {
-      let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
+      let distanceFromTop =
+        divImage.getBoundingClientRect().top + window.pageYOffset;
 
       // NOTE: mobile
-      if(window.innerWidth < 766){
+      if (window.innerWidth < 766) {
         // create canvas from html element
         html2canvas(divImage, {
           useCORS: true,
@@ -75,24 +76,24 @@ class App extends Component {
           y: distanceFromTop,
         }).then((canvas) => {
           // convert canvas to blob
-          canvas.toBlob(function(blob) {
+          canvas.toBlob(function (blob) {
             // set href of download button
             button.href = URL.createObjectURL(blob);
           });
         });
       }
       // NOTE: desktop
-      else{
+      else {
         // create canvas from html element
         html2canvas(divImage, {
           useCORS: true,
           scrollX: 0,
           scrollY: -window.scrollY,
           height: divImage.offsetHeight,
-          width: divImage.offsetWidth
+          width: divImage.offsetWidth,
         }).then((canvas) => {
           // convert canvas to blob
-          canvas.toBlob(function(blob) {
+          canvas.toBlob(function (blob) {
             // set href of download button
             button.href = URL.createObjectURL(blob);
           });
@@ -348,6 +349,9 @@ class App extends Component {
             </div>
           </div>
         </section>
+        <footer className="App-footer">
+          <img src="/img/disclaimer.png" alt="" />
+        </footer>
       </div>
     );
   }
