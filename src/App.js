@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       name: '',
       location: '',
-      file: '/img/default.jpg',
+      file: '',
       blurb: '',
       bgPhoto: '',
       bgColor: '',
@@ -109,7 +109,9 @@ class App extends Component {
     let old_ie = browser.indexOf('MSIE ');
     let new_ie = browser.indexOf('Trident/');
 
+    // set defaults
     this.setState({
+      file: '/img/default.jpg',
       bgColor: 'purpleBg',
       bgPhoto: '/img/photo1.png',
       isIE: old_ie > -1 || new_ie > -1,
