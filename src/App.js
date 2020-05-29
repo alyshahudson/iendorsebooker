@@ -27,13 +27,10 @@ class App extends Component {
   }
 
   handleChange(e) {
-    this.setState(
-      {
+    this.setState({
         ...this.state,
         [e.target.name]: e.target.value,
-      },
-      () => this.makeCanvas()
-    );
+      }, () => this.makeCanvas());
 
     if (e.target.name === 'name') {
       // change name font-size to fit
@@ -47,13 +44,10 @@ class App extends Component {
     // change name font-size to fit
     fitty('.name-output', { maxSize: 50 });
 
-    this.setState(
-      {
+    this.setState({
         ...this.state,
         showGeneratedImage: true,
-      },
-      () => this.makeCanvas()
-    );
+      }, () => this.makeCanvas());
   }
 
   makeCanvas() {
@@ -63,7 +57,6 @@ class App extends Component {
     // otherwise generated-image and button are hidden
     if (this.state.showGeneratedImage) {
       let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
-
       // NOTE: mobile
       if(window.innerWidth < 766){
         // create canvas from html element
@@ -106,7 +99,7 @@ class App extends Component {
       this.setState({
         ...this.state,
         file: URL.createObjectURL(e.target.files[0]),
-      });
+      }, () => this.makeCanvas());
     }
   }
 
