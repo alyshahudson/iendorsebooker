@@ -12,7 +12,7 @@ div#generated-image {
     overflow: hidden;
     @include flex(flex, row, center, center);
     border-radius: 50%;
-    border: 8px solid white;
+    border: 8px solid $booker-yellow;
     margin: 0 0 0 20px;
     // z-index: 1;
 
