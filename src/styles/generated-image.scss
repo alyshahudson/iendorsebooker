@@ -53,11 +53,11 @@ div#generated-image {
         background-color: white;
         color: $booker-purple;
         width: fit-content;
-        line-height: 1;
-
         i {
           color: $booker-green;
         }
+        line-height: 1.2;
+        &.name-output{ margin-bottom: 2px; }
       }
     }
 
@@ -68,7 +68,7 @@ div#generated-image {
       span.quote-mark {
         @extend .h1;
         position: absolute;
-        top: -20px;
+        top: -25px;
         left: 15px;
         color: rgba(255, 255, 255, 0.3);
       }
@@ -197,11 +197,11 @@ div#generated-image {
 
       .blurb {
         span.quote-mark {
-          top: -10px;
+          top: -35px;
           left: 10px;
         }
         h3 {
-          padding: 5px 30px;
+          padding: 15px 30px;
           font-size: 9px;
         }
       }

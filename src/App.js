@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ReactComponent as TwitterIcon } from './icons/twitter.svg';
 import { ReactComponent as FacebookIcon } from './icons/facebook.svg';
 import { ReactComponent as InstagramIcon } from './icons/instagram.svg';
+import { ReactComponent as BookerLogo } from './icons/logo.svg';
 import './App.scss';
 import ImageGenerator from './ImageGenerator';
 import html2canvas from 'html2canvas';
@@ -13,7 +14,7 @@ class App extends Component {
     this.state = {
       name: '',
       location: '',
-      file: '/img/default.jpg',
+      file: '',
       blurb: '',
       bgPhoto: '',
       bgColor: '',
@@ -27,13 +28,10 @@ class App extends Component {
   }
 
   handleChange(e) {
-    this.setState(
-      {
+    this.setState({
         ...this.state,
         [e.target.name]: e.target.value,
-      },
-      () => this.makeCanvas()
-    );
+      }, () => this.makeCanvas());
 
     if (e.target.name === 'name') {
       // change name font-size to fit
@@ -47,13 +45,10 @@ class App extends Component {
     // change name font-size to fit
     fitty('.name-output', { maxSize: 50 });
 
-    this.setState(
-      {
+    this.setState({
         ...this.state,
         showGeneratedImage: true,
-      },
-      () => this.makeCanvas()
-    );
+      }, () => this.makeCanvas());
   }
 
   makeCanvas() {
@@ -62,8 +57,7 @@ class App extends Component {
 
     // otherwise generated-image and button are hidden
     if (this.state.showGeneratedImage) {
-      let distanceFromTop =
-        divImage.getBoundingClientRect().top + window.pageYOffset;
+      let distanceFromTop = divImage.getBoundingClientRect().top + window.pageYOffset;
 
       // NOTE: mobile
       if (window.innerWidth < 766) {
@@ -107,7 +101,7 @@ class App extends Component {
       this.setState({
         ...this.state,
         file: URL.createObjectURL(e.target.files[0]),
-      });
+      }, () => this.makeCanvas());
     }
   }
 
@@ -117,7 +111,9 @@ class App extends Component {
     let old_ie = browser.indexOf('MSIE ');
     let new_ie = browser.indexOf('Trident/');
 
+    // set defaults
     this.setState({
+      file: '/img/default.jpg',
       bgColor: 'purpleBg',
       bgPhoto: '/img/photo1.png',
       isIE: old_ie > -1 || new_ie > -1,
@@ -127,21 +123,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+        {/* header */}
         <header className="App-header">
-          <section>
-            <article className="textual">
-              <img
-                className="logo"
-                src="/img/booker-logo.png"
-                alt="booker-campaign-logo"
-              />
-              <h1>I Endorse Booker</h1>
-              <p>
-                Create your own endorsement graphic for Booker to share over
-                Instagram, Twitter, Facebook, emails, and so forth!
-              </p>
-            </article>
-          </section>
+          <BookerLogo />
+          <div className="text">
+            <h1>I Endorse Booker</h1>
+            <p>
+              Create your own endorsement graphic for Booker to share over
+              Instagram, Twitter, Facebook, emails, and so forth!
+            </p>
+          </div>
         </header>
 
         <section className="body">
