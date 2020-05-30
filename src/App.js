@@ -61,7 +61,6 @@ class App extends Component {
 		let divImage = document.getElementById('generated-image');
 		let button = document.getElementById('btn-download');
 		const androidDevice = window.navigator.userAgent.indexOf('Android');
-		console.log('androidDevice:', androidDevice);
 
 		// otherwise generated-image and button are hidden
 		if (this.state.showGeneratedImage) {
@@ -69,7 +68,7 @@ class App extends Component {
 				divImage.getBoundingClientRect().top + window.pageYOffset;
 
 			// NOTE: mobile
-			if (window.innerWidth < 766 && !androidDevice) {
+			if (window.innerWidth < 766 && androidDevice < 0) {
 				//&& NOT android
 				// create canvas from html element
 				html2canvas(divImage, {
