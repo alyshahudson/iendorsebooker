@@ -93,8 +93,12 @@ div#generated-image {
     p {
       font-size: 10px;
     }
+
     img {
-      width: 150px; //
+      position: absolute;
+      left: 315px; // change to %? em?
+      bottom: 4px; // change to %? em?
+      width: 150px; // have to check our screensizes
       height: auto;
     }
   }
