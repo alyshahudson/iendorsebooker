@@ -39,7 +39,7 @@ div#generated-image {
 
     // location
     .location {
-      background-color: black;
+      background-color: $booker-green;
       color: white;
       width: fit-content;
       padding: 0 30px;
@@ -51,10 +51,12 @@ div#generated-image {
 
       h2 {
         background-color: white;
-        color: red;
+        color: $booker-purple;
         width: fit-content;
+        i {
+          color: $booker-green;
+        }
         line-height: 1.2;
-
         &.name-output{ margin-bottom: 2px; }
       }
     }
@@ -68,7 +70,7 @@ div#generated-image {
         position: absolute;
         top: -25px;
         left: 15px;
-        color: rgba(255,255,255,0.3);
+        color: rgba(255, 255, 255, 0.3);
       }
 
       h3 {
@@ -90,6 +92,14 @@ div#generated-image {
 
     p {
       font-size: 10px;
+    }
+
+    img {
+      position: absolute;
+      left: 315px; // change to %? em?
+      bottom: 4px; // change to %? em?
+      width: 150px; // have to check our screensizes
+      height: auto;
     }
   }
 
@@ -119,7 +129,7 @@ div#generated-image {
     }
     .overlay-color {
       // $booker-purple;
-      background-color: rgba(42,30,81,0.3);
+      background-color: rgba(42, 30, 81, 0.3);
     }
   }
   &.yellowBg {
@@ -128,7 +138,7 @@ div#generated-image {
     }
     .overlay-color {
       // $booker-yellow;
-      background-color: rgba(246,197,79,0.3);
+      background-color: rgba(246, 197, 79, 0.3);
     }
   }
   &.greenBg {
@@ -137,7 +147,7 @@ div#generated-image {
     }
     .overlay-color {
       // $booker-green;
-      background-color: rgba(78,157,133,0.3);
+      background-color: rgba(78, 157, 133, 0.3);
     }
   }
 
