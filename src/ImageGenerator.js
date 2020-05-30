@@ -40,8 +40,8 @@ export default function ImageGenerator(props) {
         <p>
           Generated at IENDORSEBOOKER.COM{' '}
           <span className="bold">#IEndorseBooker</span>
-          <img src="/img/booker-logo.png" alt="Booker logo" />
         </p>
+        <img src="/img/booker-logo.png" alt="Booker logo" />
       </div>
 
       {/* background color */}

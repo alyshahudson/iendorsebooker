@@ -89,6 +89,7 @@ div#generated-image {
     bottom: 10px;
     left: 20px;
     color: white;
+    width: 100%;
 
     p {
       font-size: 10px;
@@ -96,9 +97,9 @@ div#generated-image {
 
     img {
       position: absolute;
-      left: 315px; // change to %? em?
-      bottom: 4px; // change to %? em?
-      width: 150px; // have to check our screensizes
+      right: 30px;
+      bottom: 4px;
+      width: 150px;
       height: auto;
     }
   }
@@ -204,6 +205,17 @@ div#generated-image {
           padding: 15px 30px;
           font-size: 9px;
         }
+      }
+    }
+
+    // fine print
+    .fine-print {
+      p {
+        font-size: 5px;
+      }
+
+      img {
+        width: 75px;
       }
     }
 
