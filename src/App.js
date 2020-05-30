@@ -180,22 +180,6 @@ class App extends Component {
 									<label htmlFor="location">Job Title/Location</label>
 								</div>
 
-								{/* why */}
-								<div className="input-group standard">
-									<textarea
-										onChange={this.handleChange}
-										name="blurb"
-										placeholder="Your text here"
-										rows="6"
-										value={this.state.blurb}
-										maxLength="400"
-										required
-									/>
-									<label htmlFor="blurb">
-										Why do you endorse Charles Booker?
-									</label>
-								</div>
-
                 {/* blurb */}
                 <div className="input-group standard">
                   <textarea
