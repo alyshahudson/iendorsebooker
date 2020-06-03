@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Developed by
 
-[Abby Benvenutti](https://github.com/abbybenvenutti)
-[Esther Park](https://github.com/epark17)
-[Jordan Davis](https://github.com/jtdavis9311)
-[Keyairra Wright](https://github.com/Keyairra-S-Wright)
+[Abby Benvenutti](https://github.com/abbybenvenutti)<br/>
+[Esther Park](https://github.com/epark17)<br/>
+[Jordan Davis](https://github.com/jtdavis9311)<br/>
+[Keyairra Wright](https://github.com/Keyairra-S-Wright)<br/>
