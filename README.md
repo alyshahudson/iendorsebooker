@@ -6,8 +6,6 @@ _[Make your own](https://iendorsebooker.com/) supporter graphic for [Charles Boo
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and used [html2canvas](https://html2canvas.hertzen.com/) to generate endorsement images.
 
-If you are deploying a branch of this, you may find yourself needing to set up a license to Adobe fonts to use the Jubilat web-font.
-
 ## Set-Up & Installation
 
 - [ ] Fork and/or clone this repository and install dependencies with `npm install`.
