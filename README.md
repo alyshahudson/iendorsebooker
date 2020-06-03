@@ -1,6 +1,6 @@
 # iendorsebooker.com
 
-_Make your own supporter graphic for [Charles Booker](https://bookerforkentucky.com/) to share on social media!_
+_[Make your own](https://iendorsebooker.com/) supporter graphic for [Charles Booker](https://bookerforkentucky.com/) to share on social media!_
 
 ## About
 
