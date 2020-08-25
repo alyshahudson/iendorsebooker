@@ -13,9 +13,9 @@ $horizontal-padding: 9vw;
 Colors
 ----------------------------------------
 */
-$booker-purple: #2a1e51;
-$booker-yellow: #f6c54f;
-$booker-green: #4e9d85;
+$booker-purple: #75d2f0;
+$booker-yellow: #ffcf50;
+$booker-green: #2f80ed;
 
 :root {
   color-scheme: light dark;
@@ -23,17 +23,17 @@ $booker-green: #4e9d85;
   --color-Link: hsl(202, 65%, 63%);
   --body-background: white;
   --body-text: hsl(0, 0%, 13%);
-  --header-background: #2a1e51;
-  --header-text: #f6c54f;
+  --header-background: #75d2f0;
+  --header-text: #2f80ed;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-Link: hsl(202, 65%, 63%);
-    --body-background: #202020;
+    --body-background: #75d2f0;
     --body-text: hsl(0, 0%, 87%);
-    --header-background: #f6c54f;
-    --header-text: #2a1e51;
+    --header-background: #ffcf50;
+    --header-text: #2f80ed;
   }
 }
 
@@ -43,6 +43,6 @@ Resposive Helpers
 ----------------------------------------
 */
 
-$tablet: 'screen and (max-width: 1099px) and (min-width: 767px)';
-$tablet-portrait: 'screen and (max-width: 939px) and (min-width: 767px)';
-$phone: 'screen and (max-width: 766px)';
+$tablet: "screen and (max-width: 1099px) and (min-width: 767px)";
+$tablet-portrait: "screen and (max-width: 939px) and (min-width: 767px)";
+$phone: "screen and (max-width: 766px)";
